@@ -4,4 +4,3 @@ django-extensions
 django-debug-toolbar
 fake-factory
 ipython
-pgcli
