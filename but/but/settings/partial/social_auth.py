@@ -10,6 +10,9 @@ INSTALLED_APPS += [
 SOCIAL_AUTH_FACEBOOK_KEY = os.environ.get('FACEBOOK_KEY')
 SOCIAL_AUTH_FACEBOOK_SECRET = os.environ.get('FACEBOOK_SECRET')
 
+SOCIAL_AUTH_KAKAO_KEY = os.environ.get('KAKAO_KEY')
+SOCIAL_AUTH_KAKAO_SECRET = os.environ.get('KAKAO_SECRET')
+
 AUTHENTICATION_BACKENDS = (
     'social.backends.kakao.KakaoOAuth2',
     'social.backends.facebook.FacebookOAuth2',
