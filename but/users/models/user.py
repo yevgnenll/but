@@ -10,6 +10,8 @@ class User(AbstractUser):
 
     description = models.TextField()
 
+    is_authenticated = models.BooleanField()
+
     def __str__(self):
         return self.username
 

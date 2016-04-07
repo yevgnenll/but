@@ -9,3 +9,4 @@ boto
 django-storages-redux
 gunicorn
 pgcli
+python-social-auth
