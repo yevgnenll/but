@@ -8,3 +8,4 @@ django-pipeline
 boto
 django-storages-redux
 gunicorn
+pgcli
