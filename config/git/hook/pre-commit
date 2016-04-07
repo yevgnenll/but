@@ -1,0 +1,9 @@
+#!/bin/sh
+
+
+echo "---------------------------"
+echo "pep8 check all python style"
+echo "---------------------------"
+
+pep8 .
+
