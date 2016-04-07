@@ -1,0 +1,10 @@
+django==1.9.4
+Pillow
+hashids
+raven
+psycopg2
+dj-database-url
+django-pipeline
+boto
+django-storages-redux
+gunicorn
