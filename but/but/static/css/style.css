@@ -1,57 +1,36 @@
-/* Custom Stylesheet */
-/**
- * Use this file to override Materialize files so you can update
- * the core Materialize files in the future
- *
- * Made By MaterializeCSS.com
- */
-
-nav ul a,
-nav .brand-logo {
-  color: #444;
-}
-
-p {
-  line-height: 2rem;
-}
-
-.button-collapse {
-  color: #26a69a;
-}
-
-.parallax-container {
-  min-height: 380px;
-  line-height: 0;
-  height: auto;
-  color: rgba(255,255,255,.9);
-}
-  .parallax-container .section {
-    width: 100%;
-  }
-
-@media only screen and (max-width : 992px) {
-  .parallax-container .section {
-    position: absolute;
-    top: 40%;
-  }
-  #index-banner .section {
-    top: 10%;
-  }
-}
-
-@media only screen and (max-width : 600px) {
-  #index-banner .section {
-    top: 0;
-  }
-}
-
 .icon-block {
-  padding: 0 15px;
-}
-.icon-block .material-icons {
-  font-size: inherit;
-}
+  padding: 0 15px; }
 
-footer.page-footer {
-  margin: 0;
-}
+.icon-block .material-icons {
+  font-size: inherit; }
+
+li {
+  list-style-type: none; }
+
+.min-height {
+  min-height: 67vh; }
+
+.authform {
+  padding-top: 5vh; }
+
+.ptop7vh {
+  padding-top: 5vh; }
+
+.fixed-action-btn {
+  bottom: 100px;
+  right: 70px; }
+
+.card-image {
+  max-height: 70%; }
+
+.chip > .a-font-color {
+  color: #039be5; }
+
+.card.large {
+  height: 600px; }
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-floating) {
+  color: #039be5; }
+
+.float_left {
+  float: left; }
