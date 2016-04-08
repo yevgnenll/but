@@ -2,6 +2,7 @@ import os
 
 from .base import BASE_DIR, PROJECT_DIR
 
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
@@ -30,7 +31,7 @@ PIPELINE = {
         'vendor': {
             'source_filenames': (
                 'js/vendor/jquery-2.2.3.min.js',
-                'js/vendor/materialize.js',
+                'js/vendor/materialize.min.js',
             ),
             'output_filename': 'js/vendor/vendor.js',
         },
