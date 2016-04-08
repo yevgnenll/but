@@ -1,0 +1,36 @@
+{% load pipeline %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>{% block title %} {% endblock %}</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    {% stylesheet 'vendor' %}
+    {% stylesheet 'style' %}
+</head>
+<body id="body" 
+        data-messages="{% for message in messages %}{{message}};{% endfor %}"
+        data-message-tags="{% for message in messages %}{{ message.tags }};{% endfor %}"
+    >
+    {% include "partials/header.html" %}
+
+    {% if messages %}
+        {% include "partials/messages.html" %}
+    {% endif %}
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    {% include "partials/footer.html" %}
+    
+    {# javascript #}
+    {% javascript 'vendor' %}
+    {% javascript 'but' %}
+
+  </body>
+</html>

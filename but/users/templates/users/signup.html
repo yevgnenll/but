@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}
+    회원가입을 환영합니다
+{% endblock %}
+
+{% block content %}
+<div class="container">
+<section class="min-height authform"> 
+<h1 class="header center  light-blue-text text-darken-4">당신의 재능을 환영합니다</h1>
+    <div class="row">
+        <form class="col s12" action="{% url 'signup' %}" method="post">
+            <div class="row">
+                <div class="input-field col s12 m12 l12">
+                    <i class="material-icons prefix">perm_identity</i>
+                    <input name="username" type="text" class="validate" required>
+                    <label for="icon_prefix">user id</label>
+                </div>
+            </div>
+            <div class="row"> 
+                <div class="input-field col s6 m6 l6">
+                    <i class="material-icons prefix">lock_open</i>
+                    <input id="firstpw" name="password" type="password" class="validate" required>
+                    <label for="lock_open">password</label>
+                </div>
+                <div class="input-field col s6 m6 l6">
+                    <i class="material-icons prefix">lock_open</i>
+                    <input id="secondpw" name="password" type="password" class="validate" required>
+                    <label id="checked" for="lock_open">check password</label>
+                </div>
+
+            </div>
+            <div class="row"> 
+                <div class="input-field col s12 m12 l12">
+                    <i class="material-icons prefix">email</i>
+                    <input name="email" type="email" class="validate" required>
+                    <label for="lock_open">e-mail</label>
+                </div>
+            </div>
+            <div class="row">
+                <input type="submit" id="signup" class="waves-effect waves-light btn" value="submit"></input>
+                {% csrf_token %}
+            </div>
+
+        </form>
+            <div class="row">
+
+            </div>
+
+    </div>
+ </section>
+</div>
+{% endblock %}
