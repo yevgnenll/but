@@ -16,7 +16,7 @@ INSTALLED_APPS += [
 ]
 
 RAVEN_CONFIG = {
-    'dsn': 'https://db63343960c84fe0851b9167e95b95b3:d1f369f174774676a11363b42976a6e3@app.getsentry.com/72480',
+    'dsn': 'https://e5f71612f02944c1918e54e156ac3976:8041940a51d34500accba3cfd92a06c7@app.getsentry.com/73401',
 }
 
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
