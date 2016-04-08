@@ -1,8 +1,10 @@
+{% load pipeline %}
 <!DOCTYPE html>
 <html lang="ko-KR">
 <head>
     <meta charset="UTF-8">
     <title>{% block title %} {% endblock %}</title>
+    {% stylesheet 'style' %}
 </head>
 <body>
 
@@ -14,6 +16,8 @@
     </main>
 
     {% include "partials/footer.html" %}
+
+    {% javascript 'but' %}
     
 </body>
 </html>
