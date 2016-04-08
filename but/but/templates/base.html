@@ -12,12 +12,20 @@
     {% stylesheet 'vendor' %}
     {% stylesheet 'style' %}
 </head>
-<body>
+<body id="body" 
+        data-messages="{% for message in messages %}{{message}};{% endfor %}"
+        data-message-tags="{% for message in messages %}{{ message.tags }};{% endfor %}"
+    >
     {% include "partials/header.html" %}
 
-    {% block content %}
-    {% endblock %}
-    
+    {% if messages %}
+        {% include "partials/messages.html" %}
+    {% endif %}
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
 
     {% include "partials/footer.html" %}
     

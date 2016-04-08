@@ -1,2 +1,3 @@
 from .signup import SignupView
-from .logout import logout
+from .login import UserLoginView
+from .logout_user import logout_user

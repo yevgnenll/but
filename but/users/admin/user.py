@@ -11,7 +11,6 @@ class UserAdminModel(admin.ModelAdmin):
             'email',
             'is_active',
             'date_joined',
-            'is_authenticated',
             'last_login',
             'id',
     )
@@ -24,6 +23,5 @@ class UserAdminModel(admin.ModelAdmin):
 
     list_filter = (
             'date_joined',
-            'is_authenticated',
             'last_login',
     )
