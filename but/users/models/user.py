@@ -8,6 +8,11 @@ class User(AbstractUser):
             max_length=20,
     )
 
+    profile_image = models.ImageField(
+            null=True,
+            blank=True,
+    )
+
     description = models.TextField()
 
     def __str__(self):

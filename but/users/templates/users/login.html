@@ -3,6 +3,7 @@
 {% block content %}
 <div class="container">
 <section class="min-height authform">
+
     <h1 class="header center light-blue-text text-darken-4">어서오세요<br/>당신의 재능은 세상에 필요합니다</h1>
 
     <form class="col s12"  action="{% url 'login' %}" method="post">
@@ -10,14 +11,14 @@
             <div class="input-field col s12 m12 l12">
                 <i class="material-icons prefix">perm_identity</i>
                 <input name="username" type="text" class="validate" required>
-                <label for="icon_prefix">user id</label>
+                <label for="icon_prefix">ID 혹은 e-mail을 입력해주세요</label>
             </div>
         </div>
         <div class="row"> 
             <div class="input-field col s12 m12 l12">
                 <i class="material-icons prefix">lock_open</i>
                 <input id="firstpw" name="password" type="password" class="validate" required>
-                <label for="lock_open">password</label>
+                <label for="lock_open">비밀번호</label>
             </div>
         </div>
         {% csrf_token %}
