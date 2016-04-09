@@ -9,7 +9,7 @@
 <section class="container">
     <h1 class="header center  light-blue-text text-darken-4">{{ user.username }} 님의 프로필 수정</h1>
     <div class="row">
-        <form class="col s12 form-note" action="{% url 'profile_modify' user.username %}" method="post">
+        <form class="col s12 form-note" action="{% url 'profile_modify' user.username %}" method="post" enctype="multipart/form-data">
             <div class="row">
                 <div class="input-field col s12 m12 l12">
                     <i class="material-icons prefix">perm_identity</i>

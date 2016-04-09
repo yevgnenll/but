@@ -2,12 +2,15 @@ from django.conf.urls import url, include, patterns
 from django.contrib import admin
 from django.conf import settings
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 from social.utils import setting_name
 from social.apps.django_app import views
 
 from but.views import HomeView
 from users.views import SignupView, logout_user, UserLoginView, UserProfileView, UserProfileModifyView
-from trades.views import SellCreateView
+from trades.views import SellCreateView, GoodsListView
 
 
 urlpatterns = [
@@ -18,6 +21,7 @@ urlpatterns = [
     url(r'^login/$', UserLoginView.as_view(), name="login"),
     url(r'^logout/$', logout_user, name="logout"),
     url(r'^register/goods/$', SellCreateView.as_view(), name="register_goods"),
+    url(r'^sell/list/$', GoodsListView.as_view(), name="sell_list"),
 
     # url(r'^logout/facebook/$', , name="facebook"),
     # url(r'^logout/kakao/$', , name="kakao"),
@@ -26,4 +30,4 @@ urlpatterns = [
 
     url('', include('social.apps.django_app.urls', namespace='social')),
 
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
