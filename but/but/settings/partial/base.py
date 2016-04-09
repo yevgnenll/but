@@ -91,3 +91,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+# celery
+BROKER_URL = 'redis://localhost:6379/0'

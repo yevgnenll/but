@@ -9,6 +9,13 @@ class Sell(models.Model):
             settings.AUTH_USER_MODEL,
     )
 
+    title = models.CharField(
+            max_length=150,
+    )
+
+    sub_title = models.CharField(
+            max_length=140,
+    )
     goods_name = models.CharField(
             max_length=150,
     )
@@ -42,7 +49,7 @@ class Sell(models.Model):
     goods_description = models.TextField()
 
     hash_id = models.CharField(
-            max_length=10,
+            max_length=20,
             null=True,
             blank=True,
             unique=True,

@@ -10,3 +10,6 @@ django-storages-redux
 gunicorn
 pgcli
 python-social-auth
+celery[redis]
+flower
+honcho

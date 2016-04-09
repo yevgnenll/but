@@ -11,19 +11,33 @@
         <div class="row">
             <form class="col s12" action="{% url 'register_goods' %}" method="post" enctype="multipart/form-data">
                 <div class="row">
-                    <div class="input-field col s12 m12 l12">
+                    <div class="input-field col s12 m6 l6">
                         <i class="material-icons prefix">perm_identity</i>
                         <input name="username" type="text" class="validate" value="{{ request.user.username }}" disabled>
                         <label for="icon_prefix">판매자</label>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12 m12 l12">
+                    <div class="input-field col s12 m6 l6">
                         <i class="material-icons prefix">info_outline</i>
                         <input name="goods_name" type="text" class="validate">
                         <label for="icon_prefix">제품이름</label>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="input-field col s12 m12 l12">
+                        <i class="material-icons prefix">perm_identity</i>
+                        <input name="title" type="text" class="validate">
+                        <label for="icon_prefix">상품 소개 제목</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12 m12 l12">
+                        <i class="material-icons prefix">perm_identity</i>
+                        <textarea name="sub_title" class="materialize-textarea textarea_material"></textarea>
+                        <label for="icon_prefix">140자 소개</label>
+                    </div>
+                </div>
+
 
                 <div class="row"> 
                     <div class="input-field col s12 m6 l6">
