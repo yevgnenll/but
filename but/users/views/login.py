@@ -36,7 +36,11 @@ class UserLoginView(View):
             login(request, is_user)
             return redirect(next_page)
         else:
-            messages.add_message(request, messages.ERROR, "ID나 비밀번호가 틀렸습니다")
+            messages.add_message(
+                    request,
+                    messages.ERROR,
+                    "ID가 없거나 비밀번호가 틀렸습니다"
+            )
             return render(
                     request,
                     "users/login.html",
