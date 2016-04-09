@@ -6,4 +6,38 @@
 
 {% block content %}
 
+<section class="container padding-top-5">
+
+    <div class="row">
+        {% for good in object_list %}
+            <div class="col offset-s2 offset-m2 offset-l2 s8 m8 l8">
+                <div class="card large">
+                   <div class="card large card_height_600">
+                        <div class="card-image post-list-card">
+                            <a href="#">
+                                <img src="{{ good.welcome_image.url }}" alt="{{ good.title }}">
+                            </a>
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title">{{ good.title }}</span>
+                            <p>{{ good.sub_title | safe }}</p>
+                                <div class="chip a-font-color">
+                                    <a href="#">{{ good.user }}</a>
+                                </div>
+
+                        </div>
+                        <div class="card-action">
+                          <a href="#">{{ good.user }}</a>
+                        </div>
+                      </div>  
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+
+
+    </div>
+
+</section>
+
 {% endblock %}

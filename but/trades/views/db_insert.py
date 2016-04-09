@@ -11,6 +11,8 @@ from .base import GoodsSellBase
 class SellCreateView(LoginRequiredMixin, GoodsSellBase,  CreateView):
 
     fields = [
+       'title',
+       'sub_title',
        'goods_name',
        'stock',
        'price',

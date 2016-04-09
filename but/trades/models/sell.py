@@ -9,6 +9,13 @@ class Sell(models.Model):
             settings.AUTH_USER_MODEL,
     )
 
+    title = models.CharField(
+            max_length=150,
+    )
+
+    sub_title = models.CharField(
+            max_length=140,
+    )
     goods_name = models.CharField(
             max_length=150,
     )

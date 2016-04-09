@@ -5,8 +5,7 @@
             lang: 'ko-KR',
             height: 500,
             minHeight: 500,
-            maxHeight: null,
-            focus: true
+            maxHeight: null
         });
 
         $('.submit_note').click(function(){

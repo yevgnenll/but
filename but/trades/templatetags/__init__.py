@@ -1,0 +1,1 @@
+from .shrink import shrink
