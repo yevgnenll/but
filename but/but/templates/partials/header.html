@@ -3,6 +3,7 @@
         <ul class="right hide-on-med-and-down">
             <li><a href="{% url 'home' %}">home</a></li>
             {% if request.user.is_authenticated %}
+                <li><a href="{% url 'profile' request.user.username %}">profile</a></li>
                 <li><a href="{% url 'logout' %}">logout</a></li>
             {% else %}
                 <li><a href="{% url 'signup' %}">signup</a></li>
@@ -13,6 +14,7 @@
       <ul id="nav-mobile" class="side-nav">
             <li><a href="{% url 'home' %}">home</a></li>
             {% if request.user.is_authenticated %}
+                <li><a href="{% url 'profile' request.user.username %}">profile</a></li>
                 <li><a href="{% url 'logout' %}">logout</a></li>
             {% else %}
                 <li><a href="{% url 'signup' %}">signup</a></li>
