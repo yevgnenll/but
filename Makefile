@@ -1,5 +1,5 @@
 migrate:
-	python but/manage.py makemigrations but users
+	python but/manage.py makemigrations but users trades
 	python but/manage.py migrate
 
 clean:

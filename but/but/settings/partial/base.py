@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
     'but',
     'users',
+    'trades',
 
 ]
 
