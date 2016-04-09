@@ -7,7 +7,7 @@
 {% block content %}
 <div class="container">
     <section class="authform"> 
-    <h1 class="header center  light-blue-text text-darken-4">관심사를 판매해보세요</h1>
+    <h1 class="header center  light-blue-text text-darken-4">관심사를 세상에 알려주세요</h1>
         <div class="row">
             <form class="col s12" action="{% url 'register_goods' %}" method="post" enctype="multipart/form-data">
                 <div class="row">
@@ -32,7 +32,7 @@
 
                 <div class="row">
                     <div class="input-field col s12 m12 l12">
-                        <i class="material-icons prefix">perm_identity</i>
+                        <i class="material-icons prefix">edit</i>
                         <textarea name="sub_title" class="materialize-textarea textarea_material"></textarea>
                         <label for="icon_prefix">140자 소개</label>
                     </div>
@@ -42,13 +42,13 @@
                 <div class="row"> 
                     <div class="input-field col s12 m6 l6">
                         <i class="material-icons prefix">credit_card</i>
-                        <input name="price" type="text" class="validate" required>
+                        <input name="price" type="number" class="validate" step="1000" required>
                         <label for="lock_open">가격</label>
                     </div>
                     <div class="input-field col s12 m6 l6">
                         <i class="material-icons prefix">redeem</i>
-                        <input name="stock" type="text" class="validate" required>
-                        <label for="lock_open">재고</label>
+                        <input name="stock" type="number" class="validate" step="50" required>
+                        <label for="lock_open">수량</label>
                     </div>
                 </div>
                 <div class="row"> 
