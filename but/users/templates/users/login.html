@@ -3,7 +3,8 @@
 {% block content %}
 <div class="container">
 <section class="min-height authform">
-    <h1 class="header center orange-text">welcome back</h1>
+    <h1 class="header center light-blue-text text-darken-4">어서오세요<br/>당신의 재능은 세상에 필요합니다</h1>
+
     <form class="col s12"  action="{% url 'login' %}" method="post">
         <div class="row">       
             <div class="input-field col s12 m12 l12">
@@ -22,6 +23,7 @@
         {% csrf_token %}
        <div class="row">
             <input type="submit" class="waves-effect waves-light btn" value="submit"/>
+            <input type="hidden" name="next_page" value="{{ request.next }}">
        </div>
     </form>
 </section>

@@ -16,6 +16,8 @@ urlpatterns = [
     url(r'^signup/$', SignupView.as_view(), name="signup"),
     url(r'^login/$', UserLoginView.as_view(), name="login"),
     url(r'^logout/$', logout_user, name="logout"),
+    # url(r'^logout/facebook/$', , name="facebook"),
+    # url(r'^logout/kakao/$', , name="kakao"),
 
     url('', include('social.apps.django_app.urls', namespace='social')),
 

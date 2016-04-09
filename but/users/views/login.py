@@ -7,6 +7,8 @@ from django.shortcuts import render, redirect
 
 from users.models import User
 
+from users.utils import email_to_username
+
 
 class UserLoginView(View):
 
@@ -20,9 +22,10 @@ class UserLoginView(View):
 
     def post(self, request):
 
-        username = request.POST.get("username")
+        user_data = request.POST.get("username")
         password = request.POST.get("password")
         next_page = request.POST.get("next_page") or reverse("home")
+        username = email_to_username(user_data)
 
         is_user = authenticate(
                 username=username,
