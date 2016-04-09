@@ -18,7 +18,8 @@ class Sell(models.Model):
     )
 
     sold_count = models.IntegerField(
-            default=100,
+            null=True,
+            blank=True,
     )
 
     price = models.IntegerField(
@@ -39,3 +40,10 @@ class Sell(models.Model):
     )
 
     goods_description = models.TextField()
+
+    hash_id = models.CharField(
+            max_length=10,
+            null=True,
+            blank=True,
+            unique=True,
+    )
