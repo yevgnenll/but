@@ -1,4 +1,4 @@
-.modal {
+.modal-material {
   @extend .z-depth-4;
 
   display: none;
@@ -59,7 +59,7 @@
 }
 
 // Modal with fixed action footer
-.modal.modal-fixed-footer {
+.modal-material.modal-fixed-footer {
   padding: 0;
   height: 70%;
 
@@ -79,7 +79,7 @@
 }
 
 // Modal Bottom Sheet Style
-.modal.bottom-sheet {
+.modal-material.bottom-sheet {
   top: auto;
   bottom: -100%;
   margin: 0;
