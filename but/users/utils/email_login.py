@@ -16,3 +16,4 @@ def email_to_username(user_data):
             )
             return user.username
         return user_data
+    return user_data
