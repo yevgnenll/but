@@ -31,7 +31,10 @@ PIPELINE = {
         'vendor': {
             'source_filenames': (
                 'js/vendor/jquery-2.2.3.min.js',
+                'js/vendor/bootstrap.min.js',
                 'js/vendor/materialize.min.js',
+                'js/vendor/summernote.js',
+                'js/vendor/summernote-ko-KR.js',
             ),
             'output_filename': 'js/vendor/vendor.js',
         },

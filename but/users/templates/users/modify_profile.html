@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ user.username }} 정보 변경
+{% endblock %}
+
+{% block content %}
+
+<section class="container">
+    <h1 class="header center  light-blue-text text-darken-4">{{ user.username }} 님의 프로필 수정</h1>
+    <div class="row">
+        <form class="col s12 form-note" action="{% url 'profile_modify' user.username %}" method="post">
+            <div class="row">
+                <div class="input-field col s12 m12 l12">
+                    <i class="material-icons prefix">perm_identity</i>
+                    <input name="username" type="text" class="validate" value="{{ user.username }}" disabled>
+                    <label for="icon_prefix">user id</label>
+                </div>
+            </div>
+            <div class="row"> 
+                <div class="input-field col s6 m6 l6">
+                    <i class="material-icons prefix">lock_open</i>
+                    <input id="firstpw" name="password" type="password" class="validate" required>
+                    <label for="lock_open">password</label>
+                </div>
+                <div class="input-field col s6 m6 l6">
+                    <i class="material-icons prefix">lock_open</i>
+                    <input id="secondpw" name="password" type="password" class="validate" required>
+                    <label id="checked" for="lock_open">check password</label>
+                </div>
+
+            </div>
+			<div class="row">
+                <div class="file-field input-field">
+                    <div class="btn">
+                        <span>image</span>
+                        <input type="file" name="image" required value="" >
+                    </div>
+                    {# image path #}
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text" placeholder="프로필 이미지">
+                    </div>
+                </div>
+            </div>
+            <div class="row"> 
+                <div class="input-field col s12 m12 l6">
+                    <i class="material-icons prefix">email</i>
+                    <input name="email" type="email" class="validate" value="{{ user.email }}" required>
+                    <label for="lock_open">e-mail</label>
+                </div>
+                <div class="input-field col s12 m12 l6">
+                    <i class="material-icons prefix">phone_number</i>
+                    <input name="phone_number" type="text" class="validate" value="{{ user.phone_number }}" required>
+                    <label for="phone_number">dialer_sip</label>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div id="summernote">
+                        {{ user.description| safe }}
+                    </div>
+                    <textarea name="description" id="text-note" class="text-note hidden-node" cols="30" rows="10">
+                    </textarea>
+                </div>
+            </div>
+
+            <div class="row">
+                <button id="signup" class="waves-effect waves-light btn submit_note">submit</button>
+                {% csrf_token %}
+        </from>
+</section>
+
+
+{% endblock %}

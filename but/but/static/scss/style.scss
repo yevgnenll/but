@@ -13,7 +13,7 @@ li {
 .authform {
     padding-top: 5vh;
 }
-.ptop7vh{
+.padding-top-5{
     padding-top: 5vh;
 }
 .fixed-action-btn {
@@ -29,9 +29,6 @@ li {
 .card.large {
    height: 600px;
 }
-.card .card-action a:not(.btn):not(.btn-large):not(.btn-floating) {
-    color: #039be5;
-}
-.float_left{
-    float: left;
+.hidden-node {
+    display: none;
 }
