@@ -5,11 +5,11 @@ from django.shortcuts import render
 from django.core.urlresolvers import reverse
 
 from trades.models import Sell
+from .base import GoodsSellBase
 
 
-class SellCreateView(LoginRequiredMixin, CreateView):
+class SellCreateView(LoginRequiredMixin, GoodsSellBase,  CreateView):
 
-    model = Sell
     fields = [
        'goods_name',
        'stock',
