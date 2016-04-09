@@ -2,6 +2,7 @@
     <div class="nav-wrapper container"><a id="logo-container" href="{% url 'home' %}" class="brand-logo">Logo</a>
         <ul class="right hide-on-med-and-down">
             <li><a href="{% url 'home' %}">home</a></li>
+            <li><a href="{% url 'goods_list' %}">list</a></li>
             {% if request.user.is_authenticated %}
                 <li><a href="{% url 'profile' request.user.username %}">profile</a></li>
                 <li><a href="{% url 'logout' %}">logout</a></li>
@@ -13,6 +14,7 @@
 
       <ul id="nav-mobile" class="side-nav">
             <li><a href="{% url 'home' %}">home</a></li>
+            <li><a href="{% url 'goods_list' %}">list</a></li>
             {% if request.user.is_authenticated %}
                 <li><a href="{% url 'profile' request.user.username %}">profile</a></li>
                 <li><a href="{% url 'logout' %}">logout</a></li>
