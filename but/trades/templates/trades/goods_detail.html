@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ sell.title}}
+{% endblock %}
+
+{% block content %}
+<section class="container">
+    <h1 class="header center  light-blue-text text-darken-4">{{ sell.user }}님의 상품입니다.</h1>
+    <div class="row">
+        <div class="col s12 m12 l12">
+            <div class="slider">
+                <ul class="slides">
+                  <li>
+                      <img src="{{ sell.welcome_image.url }}" >
+                    <div class="caption center-align">
+                      <h3></h3>
+                      <h5 class="light grey-text text-lighten-3"></h5>
+                    </div>
+                  </li>
+
+                  {% if sell.second_image %}
+                      <li>
+                        <img src="{{ sell.second_image.url }}" >
+                        <div class="caption left-align">
+                        <h3></h3>
+                          <h5 class="light grey-text text-lighten-3"></h5>
+                        </div>
+                      </li>
+                  {% endif %}
+
+                  {% if sell.sub_image %}
+                      <li>
+                        <img src="{{ sell.sub_image.url }}" >
+                        <div class="caption right-align">
+                          <h3></h3>
+                          <h5 class="light grey-text text-lighten-3"></h5>
+                        </div>
+                      </li>
+                  {% endif%}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s4 m4 l4">
+            <a class="waves-effect waves-light btn-large">
+            <i class="material-icons left">cloud</i>구매하기</a>
+        </div>
+        <div class="input-field col offset-s2 offset-m2 offset-l2 s2 m2 l2">
+            <input id="first_name2" type="number" class="validate" value="1">
+            <label class="active" for="first_name2">수량</label>
+        </div>
+    </div>
+    
+    <ul class="collection noborder">
+        <div class="row">
+            <div class="col s12 m12 l12 z-depth-1">
+                <li class="collection-item">{{ sell.title }}</li>
+            </div>
+        </div>
+    </ul>
+
+    <ul class="collection noborder">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <li class="collection-item">판매자: {{ sell.user }}</li>
+
+            </div>
+            <div class="col s12 m6 l6">
+                <li class="collection-item">제품명: {{ sell.goods_name }}</li>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <li class="collection-item">가격: {{ sell.price }}</li>
+            </div>
+            <div class="col s12 m6 l6">
+                <li class="collection-item">재고: {{ sell.left_stock }}</li>
+
+            </div>
+        </div>
+    </ul>
+
+    <div class="row">
+        <div class="col s12 m12 l12">
+            {{ sell.goods_description | safe }} 
+        </div>
+    </div>
+</section>
+    {% include "partials/float_button.html" %}
+{% endblock %}

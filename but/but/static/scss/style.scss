@@ -1,34 +1,3 @@
-.icon-block {
-    padding: 0 15px;
-}
-.icon-block .material-icons {
-    font-size: inherit;
-}
-li {
-    list-style-type: none;
-}
-.min-height {
-    min-height: 67vh;
-}
-.authform {
-    padding-top: 5vh;
-}
-.padding-top-5{
-    padding-top: 5vh;
-}
-.fixed-action-btn {
-    bottom: 100px;
-    right: 70px;
-}
-.card-image {
-    max-height: 70%;
-}
-.chip > .a-font-color{
-    color: #039be5;
-}
-.card.large {
-   height: 600px;
-}
-.hidden-node {
-    display: none;
-}
+@import "component/base";
+
+@import "component/font";
