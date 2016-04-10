@@ -31,3 +31,18 @@ li {
 
 .hidden-node {
   display: none; }
+
+.slide-size {
+  width: 580px;
+  height: 260px; }
+
+.collection.noborder {
+  border: 0px; }
+
+@font-face {
+  font-family: 'Nanum Barun Gothic';
+  font-style: normal;
+  src: url(../fonts/NanumBarunGothic.ttf) format("truetype"); }
+html {
+  font-family: "Roboto"," Nanum Barun Gothic", sans-serif;
+  font-weight: normal; }

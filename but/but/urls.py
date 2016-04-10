@@ -10,7 +10,7 @@ from social.apps.django_app import views
 
 from but.views import HomeView
 from users.views import SignupView, logout_user, UserLoginView, UserProfileView, UserProfileModifyView
-from trades.views import SellCreateView, GoodsListView
+from trades.views import SellCreateView, GoodsListView, GoodsDetailView
 
 
 urlpatterns = [
@@ -21,7 +21,9 @@ urlpatterns = [
     url(r'^login/$', UserLoginView.as_view(), name="login"),
     url(r'^logout/$', logout_user, name="logout"),
     url(r'^register/goods/$', SellCreateView.as_view(), name="register_goods"),
-    url(r'^sell/list/$', GoodsListView.as_view(), name="sell_list"),
+    url(r'^sell/list/$', GoodsListView.as_view(), name="goods_list"),
+    url(r'^sell/(?P<slug>\w+)/$', GoodsDetailView.as_view(), name="goods_detail"),
+
 
     # url(r'^logout/facebook/$', , name="facebook"),
     # url(r'^logout/kakao/$', , name="kakao"),

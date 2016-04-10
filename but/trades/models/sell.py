@@ -2,6 +2,8 @@ from django.db import models
 
 from django.conf import settings
 
+from django.core.urlresolvers import reverse
+
 
 class Sell(models.Model):
 
@@ -25,8 +27,7 @@ class Sell(models.Model):
     )
 
     sold_count = models.IntegerField(
-            null=True,
-            blank=True,
+            default=0,
     )
 
     price = models.IntegerField(
@@ -54,3 +55,17 @@ class Sell(models.Model):
             blank=True,
             unique=True,
     )
+
+    def get_absolute_url(self):
+
+        return reverse(
+                'goods_detail',
+                kwargs={
+                    'slug': self.hash_id,
+                }
+        )
+
+    @property
+    def left_stock(self):
+
+        return self.stock - self.sold_count
