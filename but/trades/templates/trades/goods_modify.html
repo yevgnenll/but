@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ sell.title }} | 수정하기
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <section class="authform"> 
+    <h1 class="header center  light-blue-text text-darken-4">관심사를 세상에 알려주세요</h1>
+        <div class="row">
+            <form class="col s12" action="{% url 'goods_modify' sell.hash_id %}" method="post" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="input-field col s12 m6 l6">
+                        <i class="material-icons prefix">perm_identity</i>
+                        <input name="username" type="text" class="validate" value="{{ request.user.username }}" disabled>
+                        <label for="icon_prefix">판매자</label>
+                    </div>
+                    <div class="input-field col s12 m6 l6">
+                        <i class="material-icons prefix">info_outline</i>
+                        <input name="goods_name" type="text" class="validate" value="{{ sell.goods_name }}">
+                        <label for="icon_prefix">제품이름</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m12 l12">
+                        <i class="material-icons prefix">perm_identity</i>
+                        <input name="title" type="text" class="validate" value="{{ sell.title }}">
+                        <label for="icon_prefix">상품 소개 제목</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12 m12 l12">
+                        <i class="material-icons prefix">edit</i>
+                        <textarea name="sub_title" class="materialize-textarea textarea_material" value="{{ sell.sub_title }}"></textarea>
+                        <label for="icon_prefix">140자 소개</label>
+                    </div>
+                </div>
+
+
+                <div class="row"> 
+                    <div class="input-field col s12 m6 l6">
+                        <i class="material-icons prefix">credit_card</i>
+                        <input name="price" type="number" class="validate" required value="{{ sell.price }}">
+                        <label for="lock_open">가격</label>
+                    </div>
+                    <div class="input-field col s12 m6 l6">
+                        <i class="material-icons prefix">redeem</i>
+                        <input name="stock" type="number" class="validate" required value="{{ sell.stock }}">
+                        <label for="lock_open">수량</label>
+                    </div>
+                </div>
+                <div class="row"> 
+				    <div class="file-field input-field">
+                        <div class="btn">
+                            <span>대표 이미지</span>
+                            <input type="file" name="welcome_image">
+                        </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text" placeholder="{{ sell.welcome_image }}">
+                        </div>
+                    </div>
+                </div>
+                <div class="row"> 
+				    <div class="file-field input-field">
+                        <div class="btn">
+                            <span>두번째 이미지</span>
+                            <input type="file" name="second_image">
+                        </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text" placeholder="{{ sell.second_image}}">
+                        </div>
+                    </div>
+                </div>
+                <div class="row"> 
+				    <div class="file-field input-field">
+                        <div class="btn">
+                            <span>세번째 이미지</span>
+                            <input type="file" name="sub_image">
+                        </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text" placeholder="{{ sell.sub_image }}">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col s12 m12 l12">
+                        <div id="summernote">
+                            {{ sell.goods_description | safe }}
+                        </div>
+                        <textarea name="goods_description" id="text-note" class="text-note hidden-node" cols="30" rows="10">
+                        </textarea>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <button class="waves-effect waves-light btn submit_note">등록</button>
+                    {% csrf_token %}
+                </div>
+
+            </form>
+
+        </div>
+    </section>
+</div>
+
+
+
+{% endblock %}
