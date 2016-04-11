@@ -11,16 +11,23 @@
         <div class="row">
             <form class="col s12" action="{% url 'goods_modify' sell.hash_id %}" method="post" enctype="multipart/form-data">
                 <div class="row">
-                    <div class="input-field col s12 m6 l6">
+                    <div class="input-field col s12 m4 l4">
                         <i class="material-icons prefix">perm_identity</i>
                         <input name="username" type="text" class="validate" value="{{ request.user.username }}" disabled>
                         <label for="icon_prefix">판매자</label>
                     </div>
-                    <div class="input-field col s12 m6 l6">
+                    <div class="input-field col s12 m4 l4">
                         <i class="material-icons prefix">info_outline</i>
                         <input name="goods_name" type="text" class="validate" value="{{ sell.goods_name }}">
                         <label for="icon_prefix">제품이름</label>
                     </div>
+                    <div class="col s12 m4 l4">
+                        <input id="public_true" name="is_public" type="radio" value="True" {% if sell.is_public %}checked{% endif %}/>
+                        <label for="public_true">판매중</label>
+                        <input id="public_false" name="is_public" type="radio" value="False" {% if not sell.is_public %}checked{% endif %}/>
+                        <label for="public_false">판매종료</label>
+                    </div>
+
                 </div>
                 <div class="row">
                     <div class="input-field col s12 m12 l12">
