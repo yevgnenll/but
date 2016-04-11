@@ -10,6 +10,8 @@ from .base import GoodsSellBase
 
 class SellCreateView(LoginRequiredMixin, GoodsSellBase,  CreateView):
 
+    model = Sell
+
     fields = [
        'title',
        'sub_title',

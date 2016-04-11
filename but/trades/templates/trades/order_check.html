@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ buy.sell.title }}
+{% endblock %}
+
+{% block content %}
+    <h1 class="header center  light-blue-text text-darken-4">주문확인</h1>
+
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+            <form action="{% url 'order_complete' buy.hash_id %}" method="post" id="order_complete_form">
+            {% csrf_token %}
+
+            <ul class="collection">
+            <li class="collection-item avatar">
+                <img src="{{ buy.sell.welcome_image.url }}" alt="{{ buy.sell.title }}" class="circle">
+                <span class="title">{{ buy.sell.title }}</span>
+                <p>가격: {{ buy.result_price }}원 = {{ buy.price }}원 * {{ buy.count }}개<br>
+                <div class="input-field col s6">
+                    <input id="dest_address" name="address" type="text" class="validate">
+                    <label for="dest_address">배송지 주소</label>
+                </div>
+                <input type="hidden" name="is_complete" value="True">
+                </p>
+            </li>
+            </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m12 l12"></div>
+                <a class="waves-effect waves-light btn" id="order_complete_button">주문완료</a> 
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
