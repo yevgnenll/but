@@ -88,4 +88,3 @@ ENV/
 
 .sass-cache/
 config.codekit
-*.css

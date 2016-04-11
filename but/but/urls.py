@@ -9,8 +9,11 @@ from social.utils import setting_name
 from social.apps.django_app import views
 
 from but.views import HomeView
-from users.views import SignupView, logout_user, UserLoginView, UserProfileView, UserProfileModifyView
-from trades.views import SellCreateView, GoodsListView, GoodsDetailView, SellUpdateView
+from users.views import SignupView, logout_user,\
+        UserLoginView, UserProfileView, UserProfileModifyView
+from trades.views import SellCreateView, GoodsListView,\
+    GoodsDetailView, SellUpdateView, OrderPageView, OrderCheckView,\
+    OrderCompleteView
 
 
 urlpatterns = [
@@ -24,6 +27,10 @@ urlpatterns = [
     url(r'^sell/list/$', GoodsListView.as_view(), name="goods_list"),
     url(r'^sell/(?P<slug>\w+)/modify/$', SellUpdateView.as_view(), name="goods_modify"),
     url(r'^sell/(?P<slug>\w+)/$', GoodsDetailView.as_view(), name="goods_detail"),
+
+    url(r'^order/check/(?P<slug>\w+)/$', OrderCheckView.as_view(), name="order_check"),
+    url(r'^order/(?P<slug>\w+)/complete/$', OrderCompleteView.as_view(), name="order_complete"),
+    url(r'^order/(?P<slug>\w+)/$', OrderPageView.as_view(), name="order_page"),
 
 
     # url(r'^logout/facebook/$', , name="facebook"),

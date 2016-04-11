@@ -89,3 +89,9 @@ class Sell(models.Model):
         verbose_name = "판매"
         verbose_name_plural = verbose_name
         ordering = ['-id']
+
+    sell_buy_set = models.ManyToManyField(
+            settings.AUTH_USER_MODEL,
+            related_name='sell_buy_set',
+            through="Buy",
+    )
