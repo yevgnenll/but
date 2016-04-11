@@ -56,6 +56,18 @@ class Sell(models.Model):
             unique=True,
     )
 
+    is_public = models.BooleanField(
+            default=True,
+    )
+
+    created_at = models.DateTimeField(
+            auto_now_add=True,
+    )
+
+    updated_at = models.DateTimeField(
+            auto_now=True,
+    )
+
     def get_absolute_url(self):
 
         return reverse(
@@ -69,3 +81,11 @@ class Sell(models.Model):
     def left_stock(self):
 
         return self.stock - self.sold_count
+
+    def __str__(self):
+        return self.goods_name
+
+    class Meta:
+        verbose_name = "판매"
+        verbose_name_plural = verbose_name
+        ordering = ['-id']

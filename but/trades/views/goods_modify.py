@@ -11,6 +11,7 @@ class SellUpdateView(LoginRequiredMixin, GoodsSellBase, UpdateView):
         'title',
         'sub_title',
         'goods_name',
+        'is_public',
         'stock',
         'price',
         'sub_image',
@@ -21,3 +22,9 @@ class SellUpdateView(LoginRequiredMixin, GoodsSellBase, UpdateView):
 
     template_name = "trades/goods_modify.html"
     slug_field = "hash_id"
+
+    def form_valid(self, form):
+
+        # from IPython import embed; embed()
+
+        return super(SellUpdateView, self).form_valid(form)
