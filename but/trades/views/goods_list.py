@@ -6,4 +6,6 @@ from .base import GoodsSellBase
 class GoodsListView(GoodsSellBase, ListView):
 
     template_name = "trades/goods_list.html"
-    queryset = Sell.objects.filter(is_public=True).order_by('-created_at')
+    queryset = Sell.objects.filter(
+            is_public=True
+            ).order_by('-created_at')

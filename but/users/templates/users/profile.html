@@ -41,6 +41,57 @@
         </div>
     </section>
 
+    <section class="container">
+        <h2 class="header center light-blue-text text-darken-4">{{ user.username }} 님의 구매정보 입니다.</h1>
+        <div class="row">
+            <h4 class="header center light-blue-text text-darken-4">구매 완료</h1>
+                <div class="row">
+                    {% for buy in user.buy_set.is_complete_true %}
+                    <div class="col s12 m6 l6">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="{{ buy.sell.welcome_image.url }}" alt="{{ buy.sell.title }}">
+                                <span class="card-title">{{ buy.sell.title }}</span>
+                            </div>
+                            <div class="card-content">
+                                <p>
+                                    {{ buy.sell.title }}<br/>
+                                    {{ buy.count }}개 {{ buy.price }}원씩 총 {{ buy.result_price }}원 구매하셨습니다.
+                                </p>
+                            </div>
+                            <div class="card-action">
+                                <a href="{% url 'goods_detail' buy.sell.hash_id %} ">상품 바로가기</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+        </div>
+
+        <div class="row">
+            <h4 class="header center light-blue-text text-darken-4">결제 대기</h1>
+            {% for buy in user.buy_set.is_complete_false %}
+                <div class="col s12 m6 l6">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="{{ buy.sell.welcome_image.url }}" alt="{{ buy.sell.title }}">
+                            <span class="card-title">{{ buy.sell.title }}</span>
+                        </div>
+                        <div class="card-content">
+                            <p>
+                                {{ buy.sell.title }}<br/>
+                                {{ buy.count }}개 {{ buy.price }}원씩 총 {{ buy.result_price }}원 구매 예정입니다.
+                            </p>
+                        </div>
+                        <div class="card-action">
+                            <a href="/buy/check/{{ buy.hash_id }}">구매 바로가기</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
     {% include "partials/float_button.html" %}
 
 {% endblock %}

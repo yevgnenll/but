@@ -10,7 +10,7 @@
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
-            <form action="{% url 'order_complete' buy.hash_id %}" method="post" id="order_complete_form">
+            <form action="{% url 'buy_complete' buy.hash_id %}" method="post" id="order_complete_form">
             {% csrf_token %}
 
             <ul class="collection">
