@@ -28,13 +28,10 @@ urlpatterns = [
     url(r'^sell/(?P<slug>\w+)/modify/$', SellUpdateView.as_view(), name="goods_modify"),
     url(r'^sell/(?P<slug>\w+)/$', GoodsDetailView.as_view(), name="goods_detail"),
 
-    url(r'^order/check/(?P<slug>\w+)/$', OrderCheckView.as_view(), name="order_check"),
-    url(r'^order/(?P<slug>\w+)/complete/$', OrderCompleteView.as_view(), name="order_complete"),
-    url(r'^order/(?P<slug>\w+)/$', OrderPageView.as_view(), name="order_page"),
+    url(r'^buy/check/(?P<slug>\w+)/$', OrderCheckView.as_view(), name="buy_check"),
+    url(r'^buy/(?P<slug>\w+)/complete/$', OrderCompleteView.as_view(), name="buy_complete"),
+    url(r'^buy/(?P<slug>\w+)/$', OrderPageView.as_view(), name="buy_page"),
 
-
-    # url(r'^logout/facebook/$', , name="facebook"),
-    # url(r'^logout/kakao/$', , name="kakao"),
     url(r'^user/(?P<slug>\w+)/modify/$', UserProfileModifyView.as_view(), name="profile_modify"),
     url(r'^user/(?P<slug>\w+)/$', UserProfileView.as_view(), name="profile"),
 

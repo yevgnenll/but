@@ -5,7 +5,29 @@ from django.shortcuts import redirect
 from django.core.urlresolvers import reverse
 
 
+class BuyManager(models.Manager):
+
+    def get_queryset(self):
+
+        query = super(BuyManager, self).get_queryset()
+        return query.select_related(
+                'user',
+        )
+
+    def is_complete_true(self):
+
+        query = self.get_queryset().filter(is_complete=True)
+        return query
+
+    def is_complete_false(self):
+
+        query = self.get_queryset().filter(is_complete=False)
+        return query
+
+
 class Buy(models.Model):
+
+    objects = BuyManager()
 
     user = models.ForeignKey(
             settings.AUTH_USER_MODEL,
@@ -48,14 +70,15 @@ class Buy(models.Model):
 
     @property
     def result_price(self):
+
         return self.price * self.count
 
     def get_absolute_url(self):
 
         return reverse(
-            'order_check', kwargs={
+            'buy_check', kwargs={
                 'slug': self.hash_id,
-                }
+            }
         )
 
     def __str__(self):
