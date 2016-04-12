@@ -14,6 +14,16 @@ class CommentManager(models.Manager):
                 'user',
         )
 
+    def is_public_true(self):
+
+        query = self.get_queryset().filter(is_public=True)
+        return query
+
+    def is_public_false(self):
+
+        query = self.get_queryset().filter(is_public=False)
+        return query
+
 
 class Comment(models.Model):
 
@@ -50,3 +60,7 @@ class Comment(models.Model):
                     'slug': self.sell.hash_id,
                 }
         )
+
+    def __str__(self):
+
+        return self.content + " by @" + self.user.username
