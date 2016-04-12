@@ -5,7 +5,30 @@ from django.conf import settings
 from django.core.urlresolvers import reverse
 
 
+class SellManager(models.Manager):
+
+    def get_queryset(sefl):
+
+        query = super(SellManager, self).queryset()
+
+        return query.select_related(
+                'user',
+        )
+
+    def is_public_true(self):
+
+        query = self.queryset().filter(is_public=True)
+        return query
+
+    def is_public_false(self):
+
+        query = self.queryset().filter(is_public=False)
+        return query
+
+
 class Sell(models.Model):
+
+    objects = SellManager()
 
     user = models.ForeignKey(
             settings.AUTH_USER_MODEL,
