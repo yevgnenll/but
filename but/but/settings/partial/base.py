@@ -38,6 +38,7 @@ INSTALLED_APPS = [
 
     'pipeline',
     'storages',
+    'rest_framework',
 
     'but',
     'users',
