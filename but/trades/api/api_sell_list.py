@@ -7,4 +7,4 @@ from trades.models import Sell
 class SellListAPIView(ListAPIView):
 
     serializer_class = SellModelsSerializer
-    queryset = Sell.objects.all()
+    queryset = Sell.objects.is_public_true()
