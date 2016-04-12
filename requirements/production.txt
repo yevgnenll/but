@@ -13,3 +13,6 @@ python-social-auth
 celery[redis]
 flower
 honcho
+djangorestframework
+markdown
+django-filter
