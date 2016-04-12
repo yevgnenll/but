@@ -1,9 +1,13 @@
 from django.views.generic.edit import CreateView
+from django.views.decorators.http import require_POST
+from django.utils.decorators import method_decorator
+
 from django.core.urlresolvers import reverse
 
 from trades.models import Comment, Sell
 
 
+@method_decorator(require_POST, name="dispatch")
 class CommentAttachView(CreateView):
 
     model = Comment
