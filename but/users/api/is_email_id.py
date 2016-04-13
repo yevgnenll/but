@@ -4,15 +4,19 @@ from rest_framework.response import Response
 from users.models import User
 
 
-class UserCheckAPIView(APIView):
+class UserEmailAPIView(APIView):
 
-    def get(self, request, slug):
+    def post(self, request):
+
+        email = request.POST.get('email')
+        # from IPython import embed; embed()
 
         user = User.objects.filter(
-                username=slug,
+                email=email,
         )
 
         result = {}
+
         if user:
             result['status'] = '403'
         else:

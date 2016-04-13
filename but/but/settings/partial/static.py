@@ -50,6 +50,12 @@ PIPELINE = {
             ),
             'output_filename': 'js/separate/comment.js',
         },
+        'usercheck': {
+            'source_filenames': (
+                'js/separate/user_check.js',
+            ),
+            'output_filename': 'js/separate/user_check.js',
+        },
     }
 }
 

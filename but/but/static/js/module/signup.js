@@ -8,13 +8,20 @@
         var signup = $('#signup');
 
         check_pw.keyup(function(){
-            if (my_pass.val() === check_pw.val()) {
+
+            if(check_pw.val()==='') {
+                chk_label.text('check password').css('font-size', '1rem').css('color', '#bdbdbd');
+            } else if (my_pass.val() === check_pw.val()) {
                 chk_label.text('correct password').css('font-size', '20px').css('color', '#4CAF50');                
                 signup.prop('disabled', false);
-            } else {
+            }  else {
                 chk_label.text('invalid password').css('font-size', '20px').css('color','#b71c1c');
                 signup.prop('disabled', true);
             }
+        });
+
+        signup.click(function(){
+            $('#data_form').submit();
         });
     });
 
