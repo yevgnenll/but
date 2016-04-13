@@ -19,8 +19,9 @@
             if (username.val().length>4){
                 $.ajax({
 
-                    url: id_check_url + username.val() + "/",
-                    method: "GET"
+                    url: id_check_url,
+                    method: "POST",
+                    data: "username="+username.val()
 
                 }).success(function(result_value){
 

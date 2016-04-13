@@ -6,10 +6,12 @@ from users.models import User
 
 class UserCheckAPIView(APIView):
 
-    def get(self, request, slug):
+    def post(self, request):
+
+        username = request.POST.get('username')
 
         user = User.objects.filter(
-                username=slug,
+                username=username,
         )
 
         result = {}
