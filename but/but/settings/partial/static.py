@@ -44,7 +44,7 @@ PIPELINE = {
             ),
             'output_filename': 'js/module/but.js',
         },
-        'comment':{
+        'comment': {
             'source_filenames': (
                 'js/separate/comment.js',
             ),

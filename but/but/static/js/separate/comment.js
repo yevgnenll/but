@@ -4,6 +4,9 @@
             $('#comment_form').submit();
         });
 
+    });
+    $(document).ready(function(){
+
         var comment_list = $('#comment_list');
         var comment_ajax_url = comment_list.data('json-path');
 
