@@ -1,10 +1,10 @@
-from rest_framework.generics import RetrieveAPIView
+from rest_framework.generics import ListAPIView
 
 from trades.serializers import SellDetailModelSerializer, CommentModelSerializer
 from trades.models import Comment, Sell
 
 
-class CommentAPIView(RetrieveAPIView):
+class CommentAPIView(ListAPIView):
 
     serializer_class = CommentModelSerializer
 
@@ -14,4 +14,4 @@ class CommentAPIView(RetrieveAPIView):
                 pk=self.kwargs.get('pk')
         )
 
-        return queryset
+        return queryset.comment_set.all()
