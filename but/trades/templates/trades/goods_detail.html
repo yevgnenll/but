@@ -108,7 +108,7 @@
             </div>
         </div>
     </section>
-    {% if not request.user %}
+    {% if request.user.is_authenticated %}
         {% include "partials/float_button.html" %}
     {% endif %}
     {# modal popup for comment #}
