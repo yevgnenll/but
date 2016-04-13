@@ -21,6 +21,7 @@ class OrderCompleteView(LoginRequiredMixin, UpdateView):
 
         form.instance.sell.sold_count += form.instance.count
         form.instance.sell.stock -= form.instance.count
+        print('form vaild')
 
         return super(OrderCompleteView, self).form_valid(form)
 
