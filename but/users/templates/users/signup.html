@@ -14,7 +14,7 @@
             <div class="row">
                 <div class="input-field col s12 m12 l12">
                     <i class="material-icons prefix">perm_identity</i>
-                    <input name="username" type="text" class="validate" id="user_id" data-user-check="/api/user_check/" required>
+                    <input name="username" type="text" class="validate" id="user_id" data-user-check="{% url 'user_check' %}" required>
                     <label id="id_input" for="icon_prefix">사용하실 아이디를 입력해주세요</label>
                 </div>
             </div>
@@ -34,7 +34,7 @@
             <div class="row"> 
                 <div class="input-field col s12 m12 l12">
                     <i class="material-icons prefix">email</i>
-                    <input name="email" type="email" class="validate" id="user_email" required data-email-check="/api/email_check/">
+                    <input name="email" type="email" class="validate" id="user_email" required data-email-check="{% url 'email_check' %}">
                     <label for="lock_open" id="email_input">e-mail</label>
                 </div>
             </div>
