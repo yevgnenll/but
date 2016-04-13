@@ -40,10 +40,16 @@ PIPELINE = {
         },
         'but': {
             'source_filenames': (
-              'js/*.js',
+                'js/module/*.js',
             ),
-            'output_filename': 'js/but.js',
-        }
+            'output_filename': 'js/module/but.js',
+        },
+        'comment':{
+            'source_filenames': (
+                'js/separate/comment.js',
+            ),
+            'output_filename': 'js/separate/comment.js',
+        },
     }
 }
 

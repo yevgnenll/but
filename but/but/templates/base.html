@@ -1,5 +1,4 @@
 {% load pipeline %}
-{% load static %}
 <!DOCTYPE html>
 <html lang="ko-KR">
 <head>
@@ -32,6 +31,9 @@
     {# javascript #}
     {% javascript 'vendor' %}
     {% javascript 'but' %}
+
+    {% block js_sector %}
+    {% endblock %}
 
   </body>
 </html>
