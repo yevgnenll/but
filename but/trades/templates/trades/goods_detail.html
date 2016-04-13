@@ -108,7 +108,9 @@
             </div>
         </div>
     </section>
-    {% include "partials/float_button.html" %}
+    {% if not request.user %}
+        {% include "partials/float_button.html" %}
+    {% endif %}
     {# modal popup for comment #}
     <div class="modal-material" id="attach_comment">
         <div class="modal-content modal-fixed-footer">
