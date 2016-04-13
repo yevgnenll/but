@@ -95,3 +95,8 @@ class Sell(models.Model):
             related_name='sell_buy_set',
             through="Buy",
     )
+
+    @property
+    def comments(self):
+
+        return self.comment_set.all()
