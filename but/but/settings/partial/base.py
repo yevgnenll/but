@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'pipeline',
     'storages',
     'rest_framework',
-    'django-extensions',
+    'django_extensions',
 
     'but',
     'users',
