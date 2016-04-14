@@ -14,6 +14,14 @@ class UserLoginView(View):
 
     def get(self, request):
 
+        next_page = request.GET.get('next')
+        if next_page:
+            messages.add_message(
+                    request,
+                    messages.INFO,
+                    "로그인이 필요한 페이지 입니다"
+            )
+
         return render(
                 request,
                 "users/login.html",
