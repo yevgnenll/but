@@ -29,7 +29,12 @@
     {% include "partials/footer.html" %}
     
     {# javascript #}
-    {% javascript 'vendor' %}
+    <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+    {% javascript 'bootstrap' %}
+    {% javascript 'material' %}
+    {% javascript 'summernote' %}
+    {% javascript 'summernote_ko' %}
+
     {% javascript 'but' %}
 
     {% block js_sector %}

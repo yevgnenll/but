@@ -28,15 +28,35 @@ PIPELINE = {
         },
     },
     'JAVASCRIPT': {
-        'vendor': {
+        'jquery': {
             'source_filenames': (
                 'js/vendor/jquery-2.2.3.min.js',
+            ),
+            'output_filename': 'js/vendor/jquery.js',
+        },
+        'bootstrap': {
+            'source_filenames': (
                 'js/vendor/bootstrap.min.js',
+            ),
+            'output_filename': 'js/vendor/bootstrap.js',
+        },
+        'material': {
+            'source_filenames': (
                 'js/vendor/materialize.min.js',
+            ),
+            'output_filename': 'js/vendor/material.js',
+        },
+        'summernote': {
+            'source_filenames': (
                 'js/vendor/summernote.js',
+            ),
+            'output_filename': 'js/vendor/summernote.js',
+        },
+        'summernote_ko': {
+            'source_filenames': (
                 'js/vendor/summernote-ko-KR.js',
             ),
-            'output_filename': 'js/vendor/vendor.js',
+            'output_filename': 'js/vendor/summernote_ko.js',
         },
         'but': {
             'source_filenames': (
