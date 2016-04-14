@@ -15,6 +15,10 @@ class User(AbstractUser):
 
     description = models.TextField()
 
+    is_phone_certificate = models.BooleanField(
+            default=False,
+    )
+
     def __str__(self):
         return self.username
 
