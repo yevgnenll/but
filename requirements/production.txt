@@ -16,3 +16,4 @@ honcho
 djangorestframework
 markdown
 django-filter
+django-extensions
