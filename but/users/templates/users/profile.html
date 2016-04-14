@@ -20,7 +20,22 @@
             </div>
             <div class="col s12 m12 l6">
                 <ul class="collection">
-                    <li class="collection-item">{{ user.username }}</li>
+                    <li class="collection-item">
+                        {{ user.username }}
+                        {% if user.is_phone_certificate %} 
+                            <div class="chip">
+                                 <i class="large material-icons light-blue-text text-darken-4">verified_user</i>
+                                 핸드폰 인증완료
+                            </div>
+                        {% else %}
+                            <div class="chip">
+                                <a class="modal-trigger" href="#phone_certificate">
+                                <i class="large material-icons red-text text-darken-3">not_interested</i>
+                                 핸드폰 미인증
+                                </a>
+                            </div>
+                        {% endif %}
+                    </li>
                     <li class="collection-item">{{ user.email }}</li>
                     {% if user.phone_number %}
                         <li class="collection-item">{{ user.phone_number }}</li>
@@ -93,5 +108,29 @@
     </section>
 
     {% include "partials/float_button.html" %}
+    <div class="modal-material" id="phone_certificate">
+        <div class="modal-content modal-fixed-footer">
+            <div class="row">
+                <div class="input-field col s12 m8 l8">
+                    <i class="material-icons prefix">mode_edit</i>
+                    <input id="phone_number" name="phone" class="validate"/>
+                    <label for="phone_number">핸드폰번호를 입력해주세요</label>
+                </div>
+                <a class="waves-effect waves-light btn" id="comment_submit">
+                    <i class="material-icons right" id="send_cert_num">send</i>인증번호 받기
+                </a>
+            </div>
+        <div class="row">
+            <div class="input-field col s12 m8 l8">
+                <i class="material-icons prefix">mode_edit</i>
+                <input id="icon_prefix2" name="phone" class="validate"/>
+                <label for="icon_prefix2">핸드폰번호를 입력해주세요</label>
+            </div>
+        </div>
+
+    </div>
+
+    </div>
+
 
 {% endblock %}
