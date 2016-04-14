@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load pipeline %}
 
 {% block title %}
     {{ user.username }}
@@ -113,18 +114,18 @@
             <div class="row">
                 <div class="input-field col s12 m8 l8">
                     <i class="material-icons prefix">mode_edit</i>
-                    <input id="phone_number" name="phone" class="validate"/>
+                    <input id="phone_number" type="text" name="phone_number" class="validate"/>
                     <label for="phone_number">핸드폰번호를 입력해주세요</label>
                 </div>
-                <a class="waves-effect waves-light btn" id="comment_submit">
-                    <i class="material-icons right" id="send_cert_num">send</i>인증번호 받기
+                <a class="waves-effect waves-light btn" id="send_cert_num" data-phone-check="{% url 'phone_check' %}">
+                    <i class="material-icons right">send</i>인증번호 받기
                 </a>
             </div>
         <div class="row">
             <div class="input-field col s12 m8 l8">
                 <i class="material-icons prefix">mode_edit</i>
-                <input id="icon_prefix2" name="phone" class="validate"/>
-                <label for="icon_prefix2">핸드폰번호를 입력해주세요</label>
+                <input id="cert_number" type="text" name="cert_number" class="validate"/>
+                <label for="cert_number">핸드폰번호를 입력해주세요</label>
             </div>
         </div>
 
@@ -133,4 +134,8 @@
     </div>
 
 
+{% endblock %}
+
+{% block js_sector %}
+    {% javascript 'certificate' %}
 {% endblock %}
