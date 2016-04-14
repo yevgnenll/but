@@ -125,14 +125,15 @@
             <div class="input-field col s12 m8 l8">
                 <i class="material-icons prefix">mode_edit</i>
                 <input id="cert_number" type="text" name="cert_number" class="validate"/>
-                <label for="cert_number">핸드폰번호를 입력해주세요</label>
+                <label for="cert_number">문자로 받은 인증번호를 입력해주세요</label>
             </div>
+            <a class="waves-effect waves-light btn" id="cert_num_check" data-phone-cert="{% url 'phone_certificate' %}">
+                <i class="material-icons right">send</i>인증
+            </a>
         </div>
-
     </div>
 
     </div>
-
 
 {% endblock %}
 
