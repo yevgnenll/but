@@ -28,7 +28,7 @@ class UserProfileView(LoginRequiredMixin, DetailView):
             messages.add_message(
                     request,
                     messages.INFO,
-                    "{{page_user}}님의 프로필에 들어왔습니다".foramt(
+                    "{page_user}님의 프로필에 들어왔습니다".format(
                         page_user=page_user.username,
                         )
                     )

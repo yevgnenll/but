@@ -8,7 +8,7 @@
         function invalid_data(signup_btn){
             $('#id_input').text('이미 사용중인 ID입니다').css('font-size', '20px').css('color','#b71c1c');
             signup_btn.prop('disabled', true);
-            signup_btn.addClass('disabled');
+            // signup_btn.addClass('disabled');
         }
 
         function init_input(){
@@ -55,7 +55,7 @@
         function invalid(signup_btn){
             $('#email_input').text('이미 사용중인 e-mail입니다 다시 확인해주세요').css('font-size', '20px').css('color','#b71c1c');
             signup_btn.prop('disabled', true);
-            signup_btn.addClass('disabled');
+            // signup_btn.addClass('disabled');
         }
 
         email.keyup(function(){
