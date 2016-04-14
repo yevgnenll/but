@@ -1,0 +1,28 @@
+<nav class="light-blue darken-3" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="{% url 'home' %}" class="brand-logo">Logo</a>
+        <ul class="right hide-on-med-and-down">
+            <li><a class="waves-effect waves-light" href="{% url 'home' %}">home</a></li>
+            <li><a class="waves-effect waves-light" href="{% url 'goods_list' %}">list</a></li>
+            {% if request.user.is_authenticated %}
+                <li><a class="waves-effect waves-light" href="{% url 'profile' request.user.username %}">profile</a></li>
+                <li><a class="waves-effect waves-light" href="{% url 'logout' %}">logout</a></li>
+            {% else %}
+                <li><a class="waves-effect waves-light" href="{% url 'signup' %}">signup</a></li>
+                <li><a class="waves-effect waves-light" href="{% url 'login' %}">login</a></li>
+            {% endif %}
+        </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+            <li><a class="waves-effect waves-light" href="{% url 'home' %}">home</a></li>
+            <li><a class="waves-effect waves-light" href="{% url 'goods_list' %}">list</a></li>
+            {% if request.user.is_authenticated %}
+                <li><a class="waves-effect waves-light" href="{% url 'profile' request.user.username %}">profile</a></li>
+                <li><a class="waves-effect waves-light" href="{% url 'logout' %}">logout</a></li>
+            {% else %}
+                <li><a class="waves-effect waves-light" href="{% url 'signup' %}">signup</a></li>
+                <li><a class="waves-effect waves-light" href="{% url 'login' %}">login</a></li>
+            {% endif %}
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+</nav>

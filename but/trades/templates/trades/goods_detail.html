@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+{% load pipeline %}
+
+{% block title %}
+    {{ sell.title}}
+{% endblock %}
+
+{% block content %}
+<section class="container">
+
+    <h1 class="header center  light-blue-text text-darken-4">{{ sell.user }}님의 상품입니다.</h1>
+    <div class="row">
+        <div class="col s12 m12 l12">
+            <div class="slider">
+                <ul class="slides">
+                  <li>
+                      <img src="{{ sell.welcome_image.url }}" >
+                    <div class="caption center-align">
+                      <h3></h3>
+                      <h5 class="light grey-text text-lighten-3"></h5>
+                    </div>
+                  </li>
+
+                  {% if sell.second_image %}
+                      <li>
+                        <img src="{{ sell.second_image.url }}" >
+                        <div class="caption left-align">
+                        <h3></h3>
+                          <h5 class="light grey-text text-lighten-3"></h5>
+                        </div>
+                      </li>
+                  {% endif %}
+
+                  {% if sell.sub_image %}
+                      <li>
+                        <img src="{{ sell.sub_image.url }}" >
+                        <div class="caption right-align">
+                          <h3></h3>
+                          <h5 class="light grey-text text-lighten-3"></h5>
+                        </div>
+                      </li>
+                  {% endif%}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <form action="{% url 'buy_page' sell.hash_id %}" method="post" id="order_form">
+        <div class="row">
+            <div class="col s4 m4 l4">
+                <a class="waves-effect waves-light btn-large" id="order_button">
+                <i class="material-icons left">cloud</i>구매하기</a>
+            </div>
+            <div class="input-field col offset-s2 offset-m2 offset-l2 s2 m2 l2">
+                <input id="first_name2" type="number" class="validate" value="1" name="count">
+                <label class="active" for="first_name2">수량</label>
+            </div>
+        </div>
+        
+        <ul class="collection noborder">
+            <div class="row">
+                <div class="col s12 m12 l12 z-depth-1">
+                    <li class="collection-item">{{ sell.title }}</li>
+                </div>
+            </div>
+        </ul>
+
+        <ul class="collection noborder">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <li class="collection-item">판매자: {{ sell.user }}</li>
+
+                </div>
+                <div class="col s12 m6 l6">
+                    <li class="collection-item">제품명: {{ sell.goods_name }}</li>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <li class="collection-item">가격: {{ sell.price }}</li>
+                </div>
+                <div class="col s12 m6 l6">
+                    <li class="collection-item">재고: {{ sell.left_stock }}</li>
+
+                </div>
+            </div>
+        </ul>
+
+        <div class="row">
+            <div class="col s12 m12 l12">
+                {{ sell.goods_description | safe }} 
+            </div>
+        </div>
+        {% csrf_token %}
+    </form>
+
+</section>
+
+
+    <section class="container">
+    <h3 class="header center  light-blue-text text-darken-4">자유롭게 소통해주세요</h1>
+
+        <div class="row">
+            <div class="col s12 m12 l12" id="comment_div">
+                <ul class="collection" id="comment_list" data-json-path="{% url 'api_sell_comment' sell.id %}">
+                    
+                </ul>
+            </div>
+        </div>
+    </section>
+    {% if request.user.is_authenticated %}
+        {% include "partials/float_button.html" %}
+    {% endif %}
+    {# modal popup for comment #}
+    <div class="modal-material" id="attach_comment">
+        <div class="modal-content modal-fixed-footer">
+            <form action="{% url 'attach_comment' sell.hash_id %}" method="post" id="comment_form">
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">mode_edit</i>
+                    <textarea id="icon_prefix2" name="content" class="materialize-textarea"></textarea>
+                    <label for="icon_prefix2">상품에 대한 의견이나 질문을 남겨주세요</label>
+                </div>
+                {% csrf_token %}
+            </form>
+        <a class="waves-effect waves-light btn" id="comment_submit">
+            <i class="material-icons right">announcement</i>의견남기기
+        </a>
+
+        </div>
+    </div>
+
+{% endblock %}
+{% block js_sector %}
+    {% javascript 'comment' %}
+{% endblock %}
+
