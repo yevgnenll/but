@@ -40,7 +40,6 @@ urlpatterns = [
     url(r'^api/phone_certificate/$', CertificateUserPhone.as_view(), name="phone_check"),
     url(r'^api/phone_certificate/check/$', CheckCertificatePhone.as_view(), name="phone_certificate"),
 
-
     url(r'^buy/check/(?P<slug>\w+)/$', OrderCheckView.as_view(), name="buy_check"),
     url(r'^buy/(?P<slug>\w+)/complete/$', OrderCompleteView.as_view(), name="buy_complete"),
     url(r'^buy/(?P<slug>\w+)/$', OrderPageView.as_view(), name="buy_page"),
