@@ -14,7 +14,6 @@ class UserEmailAPIView(APIView):
         user = User.objects.filter(
                 email=email,
         )
-
         result = {}
 
         if user:
