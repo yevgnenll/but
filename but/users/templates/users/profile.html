@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load pipeline %}
 
 {% block title %}
     {{ user.username }}
@@ -20,7 +21,22 @@
             </div>
             <div class="col s12 m12 l6">
                 <ul class="collection">
-                    <li class="collection-item">{{ user.username }}</li>
+                    <li class="collection-item">
+                        {{ user.username }}
+                        {% if user.is_phone_certificate %} 
+                            <div class="chip">
+                                 <i class="large material-icons light-blue-text text-darken-4">verified_user</i>
+                                 핸드폰 인증완료
+                            </div>
+                        {% else %}
+                            <div class="chip">
+                                <a class="modal-trigger" href="#phone_certificate">
+                                <i class="large material-icons red-text text-darken-3">not_interested</i>
+                                 핸드폰 미인증
+                                </a>
+                            </div>
+                        {% endif %}
+                    </li>
                     <li class="collection-item">{{ user.email }}</li>
                     {% if user.phone_number %}
                         <li class="collection-item">{{ user.phone_number }}</li>
@@ -93,5 +109,34 @@
     </section>
 
     {% include "partials/float_button.html" %}
+    <div class="modal-material" id="phone_certificate">
+        <div class="modal-content modal-fixed-footer">
+            <div class="row">
+                <div class="input-field col s12 m8 l8">
+                    <i class="material-icons prefix">mode_edit</i>
+                    <input id="phone_number" type="text" name="phone_number" class="validate"/>
+                    <label for="phone_number">핸드폰번호를 입력해주세요</label>
+                </div>
+                <a class="waves-effect waves-light btn" id="send_cert_num" data-phone-check="{% url 'phone_check' %}">
+                    <i class="material-icons right">send</i>인증번호 받기
+                </a>
+            </div>
+        <div class="row">
+            <div class="input-field col s12 m8 l8">
+                <i class="material-icons prefix">mode_edit</i>
+                <input id="cert_number" type="text" name="cert_number" class="validate"/>
+                <label for="cert_number">문자로 받은 인증번호를 입력해주세요</label>
+            </div>
+            <a class="waves-effect waves-light btn" id="cert_num_check" data-phone-cert="{% url 'phone_certificate' %}">
+                <i class="material-icons right">send</i>인증
+            </a>
+        </div>
+    </div>
 
+    </div>
+
+{% endblock %}
+
+{% block js_sector %}
+    {% javascript 'certificate' %}
 {% endblock %}

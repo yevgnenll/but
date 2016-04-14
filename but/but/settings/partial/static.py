@@ -56,6 +56,13 @@ PIPELINE = {
             ),
             'output_filename': 'js/separate/user_check.js',
         },
+        'certificate': {
+            'source_filenames': (
+                'js/separate/certificate.js',
+            ),
+            'output_filename': 'js/separate/certificate.js',
+        },
+
     }
 }
 

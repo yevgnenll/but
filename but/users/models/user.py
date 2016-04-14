@@ -19,6 +19,10 @@ class User(AbstractUser):
             default=False,
     )
 
+    is_email_certificate = models.BooleanField(
+            default=False,
+    )
+
     def __str__(self):
         return self.username
 
