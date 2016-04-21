@@ -25,6 +25,4 @@ class SellUpdateView(LoginRequiredMixin, GoodsSellBase, UpdateView):
 
     def form_valid(self, form):
 
-        # from IPython import embed; embed()
-
         return super(SellUpdateView, self).form_valid(form)
