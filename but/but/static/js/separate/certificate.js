@@ -9,7 +9,8 @@
             $.ajax({
                 url: send_button.data('phone-check'),
                 method: "POST",
-                data: "phone_number="+phone_number.val()
+                // data: "phone_number="+phone_number.val()
+                data: { "phone_number": phone_number.val()}
             }).success(function(data){
             });
         });

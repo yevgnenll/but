@@ -30,7 +30,7 @@ PIPELINE = {
     'JAVASCRIPT': {
         'jquery': {
             'source_filenames': (
-                'js/vendor/jquery-2.2.3.min.js',
+                'js/vendor/jquery.min.js',
             ),
             'output_filename': 'js/vendor/jquery.js',
         },
@@ -40,9 +40,9 @@ PIPELINE = {
             ),
             'output_filename': 'js/vendor/bootstrap.js',
         },
-        'material': {
+        'mdb': {
             'source_filenames': (
-                'js/vendor/materialize.min.js',
+                'js/vendor/mdb.js',
             ),
             'output_filename': 'js/vendor/material.js',
         },

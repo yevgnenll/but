@@ -3,11 +3,11 @@
 <html lang="ko-KR">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% block title %} {% endblock %}</title>
-
-  <!-- CSS  -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     {% stylesheet 'vendor' %}
     {% stylesheet 'style' %}
 </head>
@@ -16,22 +16,17 @@
         data-message-tags="{% for message in messages %}{{ message.tags }};{% endfor %}"
     >
     {% include "partials/header.html" %}
-
-    {% if messages %}
-        {% include "partials/messages.html" %}
-    {% endif %}
-
-    <main class="min-height">
+    <div class="full-bg-img">
         {% block content %}
         {% endblock %}
-    </main>
+    </div>
+
 
     {% include "partials/footer.html" %}
     
-    {# javascript #}
     {% javascript 'jquery' %}
     {% javascript 'bootstrap' %}
-    {% javascript 'material' %}
+    {% javascript 'mdb' %}
     {% javascript 'summernote' %}
     {% javascript 'summernote_ko' %}
 

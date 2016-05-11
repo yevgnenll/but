@@ -1832,7 +1832,7 @@
   var airEditable = renderer.create('<div class="note-editable" contentEditable="true"/>');
 
   var buttonGroup = renderer.create('<div class="note-btn-group btn-group">');
-  var button = renderer.create('<button type="button" class="note-btn btn-fixed btn-default btn-sm">', function ($node, options) {
+  var button = renderer.create('<button type="button" class="note-btn btn btn-default btn-sm">', function ($node, options) {
     if (options && options.tooltip) {
       $node.attr({
         title: options.tooltip
@@ -5258,7 +5258,7 @@
                 '<div class="btn-group">',
                 '  <div class="note-palette-title">' + lang.color.background + '</div>',
                 '  <div>',
-                '    <button type="button" class="note-color-reset btn-fixed btn-default" data-event="backColor" data-value="inherit">',
+                '    <button type="button" class="note-color-reset btn btn-default" data-event="backColor" data-value="inherit">',
                 lang.color.transparent,
                 '    </button>',
                 '  </div>',
@@ -5267,7 +5267,7 @@
                 '<div class="btn-group">',
                 '  <div class="note-palette-title">' + lang.color.foreground + '</div>',
                 '  <div>',
-                '    <button type="button" class="note-color-reset btn-fixed btn-default" data-event="removeFormat" data-value="foreColor">',
+                '    <button type="button" class="note-color-reset btn btn-default" data-event="removeFormat" data-value="foreColor">',
                 lang.color.resetToDefault,
                 '    </button>',
                 '  </div>',
