@@ -32,20 +32,27 @@ PIPELINE = {
             'source_filenames': (
                 'js/vendor/jquery.min.js',
             ),
-            'output_filename': 'js/vendor/jquery.js',
+            'output_filename': 'js/vendor/jquery.min.js',
         },
         'bootstrap': {
             'source_filenames': (
                 'js/vendor/bootstrap.min.js',
             ),
-            'output_filename': 'js/vendor/bootstrap.js',
+            'output_filename': 'js/vendor/bootstrap.min.js',
         },
         'mdb': {
             'source_filenames': (
                 'js/vendor/mdb.js',
             ),
-            'output_filename': 'js/vendor/material.js',
+            'output_filename': 'js/vendor/mdb.js',
         },
+        'toastr': {
+            'source_filenames': (
+                'js/vendor/toastr_mdb.js',
+            ),
+            'output_filename': 'js/vendor/toastr_mdb.js',
+        },
+
         'summernote': {
             'source_filenames': (
                 'js/vendor/summernote.js',
