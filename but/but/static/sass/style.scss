@@ -48,5 +48,11 @@ html {
   font-family: "Roboto"," Nanum Barun Gothic", sans-serif;
   font-weight: normal; }
 
+.img-fluid, .carousel-inner > .carousel-item > img,
+.carousel-inner > .carousel-item > a > img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
 @import "module/home";
 @import "module/profile";
