@@ -41,7 +41,7 @@ body {
 /*********************
   MAIN IMAGE
 **********************/
-.full-bg-img {  
+.full-bg-img-md {  
     background: url("/static/img/background.jpg") no-repeat center center fixed;  
     -webkit-background-size: cover;
     -moz-background-size: cover;

@@ -2,34 +2,41 @@
 <!DOCTYPE html>
 <html lang="ko-KR">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% block title %} {% endblock %}</title>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>{% block title %} {% endblock %}</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Material Design Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
     {% stylesheet 'vendor' %}
     {% stylesheet 'style' %}
+
 </head>
 <body id="body" 
         data-messages="{% for message in messages %}{{message}};{% endfor %}"
         data-message-tags="{% for message in messages %}{{ message.tags }};{% endfor %}"
     >
     {% include "partials/header.html" %}
-    <div class="full-bg-img">
+
+    <section class="full-bg-img-md min-height">
         {% block content %}
         {% endblock %}
-    </div>
-
+    </section>
 
     {% include "partials/footer.html" %}
     
     {% javascript 'jquery' %}
     {% javascript 'bootstrap' %}
     {% javascript 'mdb' %}
+    {% javascript 'toastr' %}
+
     {% javascript 'summernote' %}
     {% javascript 'summernote_ko' %}
-
     {% javascript 'but' %}
 
     {% block js_sector %}
