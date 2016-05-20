@@ -19,10 +19,6 @@ li {
 .padding-top-5 {
   padding-top: 5vh; }
 
-.fixed-action-btn {
-  bottom: 100px;
-  right: 70px; }
-
 .card-image {
   max-height: 70%; }
 
@@ -52,3 +48,11 @@ html {
 
 .vertial_home {
   transform: translateY(100%); }
+
+.fixed-action-btn {
+  position: fixed;
+  right: 23px;
+  bottom: 23px;
+  padding-top: 15px;
+  margin-bottom: 0;
+  z-index: 998; }
