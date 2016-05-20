@@ -1,3 +1,5 @@
+@charset "UTF-8";  
+
 .icon-block {
   padding: 0 15px; }
 
@@ -18,10 +20,6 @@ li {
 
 .padding-top-5 {
   padding-top: 5vh; }
-
-.fixed-action-btn {
-  bottom: 100px;
-  right: 70px; }
 
 .card-image {
   max-height: 70%; }
@@ -49,8 +47,5 @@ li {
 html {
   font-family: "Roboto"," Nanum Barun Gothic", sans-serif;
   font-weight: normal; }
-
-
-@charset "UTF-8";  
 
 @import "module/home";
