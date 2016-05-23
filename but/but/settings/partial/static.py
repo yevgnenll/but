@@ -3,14 +3,12 @@ import os
 from .base import BASE_DIR, PROJECT_DIR
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.9/howto/static-files/
-
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
 STATIC_ROOT = os.path.join(PROJECT_DIR, "dist", "static")
 MEDIA_ROOT = os.path.join(PROJECT_DIR, "dist", "media")
+
 
 PIPELINE = {
     'STYLESHEETS': {
@@ -30,41 +28,29 @@ PIPELINE = {
     'JAVASCRIPT': {
         'jquery': {
             'source_filenames': (
-                'js/vendor/jquery.min.js',
+                'js/vendor/ordered/jquery.min.js',
             ),
-            'output_filename': 'js/vendor/jquery.min.js',
+            'output_filename': 'js/vendor/ordered/jquery.min.js',
         },
         'bootstrap': {
             'source_filenames': (
-                'js/vendor/bootstrap.min.js',
+                'js/vendor/ordered/bootstrap.js',
             ),
-            'output_filename': 'js/vendor/bootstrap.min.js',
+            'output_filename': 'js/vendor/ordered/bootstrap.js',
         },
         'mdb': {
             'source_filenames': (
-                'js/vendor/mdb.js',
+                'js/vendor/ordered/mdb.js',
             ),
-            'output_filename': 'js/vendor/mdb.js',
+            'output_filename': 'js/vendor/ordered/mdb.js',
         },
-        'toastr': {
+        'vendor': {
             'source_filenames': (
-                'js/vendor/toastr_mdb.js',
+                'js/vendor/not_ordered/*.js',
             ),
-            'output_filename': 'js/vendor/toastr_mdb.js',
+            'output_filename': 'js/vendor/not_ordered/vendor.js',
         },
 
-        'summernote': {
-            'source_filenames': (
-                'js/vendor/summernote.js',
-            ),
-            'output_filename': 'js/vendor/summernote.js',
-        },
-        'summernote_ko': {
-            'source_filenames': (
-                'js/vendor/summernote-ko-KR.js',
-            ),
-            'output_filename': 'js/vendor/summernote_ko.js',
-        },
         'but': {
             'source_filenames': (
                 'js/module/*.js',
