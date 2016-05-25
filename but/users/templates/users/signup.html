@@ -6,8 +6,7 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
-<section class="authform"> 
+<section class="authform container"> 
 <h1 class="header center  light-blue-text text-darken-4">당신의 재능을 환영합니다</h1>
     <div class="row">
         <form class="col s12" action="{% url 'signup' %}" method="post" id="data_form">
@@ -39,18 +38,13 @@
                 </div>
             </div>
             <div class="row">
-                <a class="waves-effect waves-light btn" id="signup">가입하기</a> 
+                <a class="waves-effect waves-light btn btn-default" id="signup">가입하기</a> 
                 {% csrf_token %}
             </div>
 
         </form>
-            <div class="row">
-
-            </div>
-
     </div>
- </section>
-</div>
+</section>
 {% endblock %}
 {% block js_sector %}
     {% javascript 'usercheck' %}
