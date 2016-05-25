@@ -31,8 +31,3 @@ class CommentModelSerializer(serializers.ModelSerializer):
             return is_image.url
         else:
             return None
-
-    def create(self, kwargs):
-        print(self,kwargs, 'ddddddddd')
-
-        return Comment(**kwargs)
