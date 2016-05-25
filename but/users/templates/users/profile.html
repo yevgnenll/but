@@ -8,7 +8,6 @@
 {% block content %}
 
     <section class="container padding-top-5">
-
         <h1 class="header center light-blue-text text-darken-4">{{ user.username }} 님의 정보입니다</h1>
         <br/>
         <div class="row">
@@ -30,7 +29,7 @@
                             </div>
                         {% else %}
                             <div class="chip">
-                                <a class="modal-trigger" href="#phone_certificate">
+                                <a class="modal-trigger" data-toggle="modal" data-target="#phone_certificate">
                                 <i class="large material-icons red-text text-darken-3">not_interested</i>
                                  핸드폰 미인증
                                 </a>
@@ -58,16 +57,16 @@
     </section>
 
     <section class="container">
-        <h2 class="header center light-blue-text text-darken-4">{{ user.username }} 님의 구매정보 입니다.</h1>
+        <h2 class="header center light-blue-text text-darken-4">{{ user.username }} 님의 구매정보 입니다.</h2>
         <div class="row">
-            <h4 class="header center light-blue-text text-darken-4">구매 완료</h1>
+            <h4 class="header center light-blue-text text-darken-4">구매 완료</h4>
                 <div class="row">
                     {% for buy in user.buy_set.is_complete_true %}
                     <div class="col s12 m6 l6">
                         <div class="card">
                             <div class="card-image">
                                 <img src="{{ buy.sell.welcome_image.url }}" alt="{{ buy.sell.title }}">
-                                <span class="card-title">{{ buy.sell.title }}</span>
+                                <span class="card-title"></span>
                             </div>
                             <div class="card-content">
                                 <p>
@@ -85,7 +84,7 @@
         </div>
 
         <div class="row">
-            <h4 class="header center light-blue-text text-darken-4">결제 대기</h1>
+            <h4 class="header center light-blue-text text-darken-4">결제 대기</h4>
             {% for buy in user.buy_set.is_complete_false %}
                 <div class="col s12 m6 l6">
                     <div class="card">
@@ -109,31 +108,39 @@
     </section>
 
     {% include "partials/float_button.html" %}
-    <div class="modal-material" id="phone_certificate">
-        <div class="modal-content modal-fixed-footer">
+
+<div class="modal fade" id="phone_certificate" role="dialog">
+  <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">핸드폰번호 인증</h4>
+            </div>
+        <div class="modal-body">
             <div class="row">
                 <div class="input-field col s12 m8 l8">
                     <i class="material-icons prefix">mode_edit</i>
                     <input id="phone_number" type="text" name="phone_number" class="validate"/>
                     <label for="phone_number">핸드폰번호를 입력해주세요</label>
                 </div>
-                <a class="waves-effect waves-light btn" id="send_cert_num" data-phone-check="{% url 'phone_check' %}">
-                    <i class="material-icons right">send</i>인증번호 받기
-                </a>
+                <button type="button" class="btn waves-effect waves-light" id="send_cert_num" data-phone-check="{% url 'phone_check' %}">인증번호 받기</button>
             </div>
-        <div class="row">
-            <div class="input-field col s12 m8 l8">
-                <i class="material-icons prefix">mode_edit</i>
-                <input id="cert_number" type="text" name="cert_number" class="validate"/>
-                <label for="cert_number">문자로 받은 인증번호를 입력해주세요</label>
+            <div class="row">
+                <div class="input-field col s12 m8 l8">
+                    <i class="material-icons prefix">mode_edit</i>
+                    <input id="cert_number" type="text" name="cert_number" class="validate"/>
+                    <label for="cert_number">문자로 받은 인증번호를 입력해주세요</label>
+                </div>
             </div>
-            <a class="waves-effect waves-light btn" id="cert_num_check" data-phone-cert="{% url 'phone_certificate' %}">
-                <i class="material-icons right">send</i>인증
-            </a>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+              <button class="waves-effect waves-light btn btn-default" id="cert_num_check" data-phone-cert="{% url 'phone_certificate' %}">인증하기</button>
+            </div>
         </div>
+      </div>
     </div>
-
-    </div>
+</div>
 
 {% endblock %}
 

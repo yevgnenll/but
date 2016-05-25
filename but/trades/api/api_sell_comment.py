@@ -14,4 +14,4 @@ class CommentAPIView(ListAPIView):
                 pk=self.kwargs.get('pk')
         )
 
-        return queryset.comment_set.all()
+        return queryset.comment_set.order_by('created_at')
