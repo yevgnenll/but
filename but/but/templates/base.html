@@ -1,4 +1,5 @@
 {% load pipeline %}
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="ko-KR">
 <head>
@@ -12,7 +13,7 @@
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="shortcut icon" type="image/png" href="{{STATIC_URL}}/static/img/favicon.png"/>
+    <link rel="shortcut icon" type="image/png" href="{% static "img/favicon.png" %}"/>
     {% stylesheet 'vendor' %}
     {% stylesheet 'style' %}
 
