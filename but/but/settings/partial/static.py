@@ -44,6 +44,13 @@ PIPELINE = {
             ),
             'output_filename': 'js/vendor/ordered/mdb.js',
         },
+        'summernote': {
+            'source_filenames': (
+                'js/vendor/ordered/summernote.js',
+            ),
+            'output_filename': 'js/vendor/ordered/summnernote.js',
+        },
+
         'vendor': {
             'source_filenames': (
                 'js/vendor/not_ordered/*.js',

@@ -1,7 +1,32 @@
 (function(){
     $(document).ready(function(){
-        $('#comment_submit').click(function(){
-            $('#comment_form').submit();
+
+        var submit_btn = $('#comment_submit');
+
+        submit_btn.click(function(){
+
+            $.ajax({
+                url: submit_btn.data('submit-url'),
+                method: "POST",
+                data: {
+                    'content': $('#comment_data').val()
+                }
+
+            }).success(function(result_value){
+                comment = result_value;
+
+                var comment_list = $('#comment_list');
+                var comment_ajax_url = comment_list.data('json-path');
+                comment_list.append(
+                    "<li class='collection-item avatar'>" +
+                        "<img src='"+ comment.profile_image + "' alt='" + comment.username +"' class='circle'>" +
+                        "<span class='title'>@"+ comment.username + "</span>" +
+                        "<p>" + comment.content+ "</p>" +
+                    '</li>'
+                );
+
+
+            });
         });
 
     });
