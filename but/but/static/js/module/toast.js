@@ -4,8 +4,7 @@
         var tags = $("body#body").data("message-tags").split(";");
 
         for (var i=0; i<messages.length-1; i++){
-            Materialize.toast(messages, 4000);
-            Materialize.toast(tags, 4000);
+            toastr.info(messages);
         }
     });
 })();

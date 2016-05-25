@@ -6,52 +6,36 @@
 {% endblock %}
 
 {% block content %}
-<section class="container">
 
+<div class="container">
     <h1 class="header center  light-blue-text text-darken-4">{{ sell.user }}님의 상품입니다.</h1>
-    <div class="row">
-        <div class="col s12 m12 l12">
-            <div class="slider">
-                <ul class="slides">
-                  <li>
-                      <img src="{{ sell.welcome_image.url }}" >
-                    <div class="caption center-align">
-                      <h3></h3>
-                      <h5 class="light grey-text text-lighten-3"></h5>
-                    </div>
-                  </li>
 
-                  {% if sell.second_image %}
-                      <li>
-                        <img src="{{ sell.second_image.url }}" >
-                        <div class="caption left-align">
-                        <h3></h3>
-                          <h5 class="light grey-text text-lighten-3"></h5>
-                        </div>
-                      </li>
-                  {% endif %}
-
-                  {% if sell.sub_image %}
-                      <li>
-                        <img src="{{ sell.sub_image.url }}" >
-                        <div class="caption right-align">
-                          <h3></h3>
-                          <h5 class="light grey-text text-lighten-3"></h5>
-                        </div>
-                      </li>
-                  {% endif%}
-                </ul>
-            </div>
-        </div>
+    <div class="flexslider">
+      <ul class="slides">
+        <li>
+            <img src="{{ sell.welcome_image.url }}" />
+        </li>
+        {% if sell.sub_image %}
+        <li>
+            <img src="{{ sell.sub_image.url }}" />
+        </li>
+        {% endif %}
+        {% if sell.second_image %}
+        <li>
+            <img src="{{ sell.second_image.url }}" />
+        </li>
+        {% endif %}
+      </ul>
     </div>
+
     <form action="{% url 'buy_page' sell.hash_id %}" method="post" id="order_form">
         <div class="row">
             <div class="col s4 m4 l4">
-                <a class="waves-effect waves-light btn-large" id="order_button">
+                <a class="waves-effect waves-light btn-large" id="order_button" data-rest-stock="{{ sell.stock }}">
                 <i class="material-icons left">cloud</i>구매하기</a>
             </div>
             <div class="input-field col offset-s2 offset-m2 offset-l2 s2 m2 l2">
-                <input id="first_name2" type="number" class="validate" value="1" name="count">
+                <input id="buy_count" type="number" class="validate" value="1" name="count">
                 <label class="active" for="first_name2">수량</label>
             </div>
         </div>
@@ -94,8 +78,6 @@
         {% csrf_token %}
     </form>
 
-</section>
-
 
     <section class="container">
     <h3 class="header center  light-blue-text text-darken-4">자유롭게 소통해주세요</h1>
@@ -112,22 +94,32 @@
         {% include "partials/float_button.html" %}
     {% endif %}
     {# modal popup for comment #}
-    <div class="modal-material" id="attach_comment">
-        <div class="modal-content modal-fixed-footer">
-            <form action="{% url 'attach_comment' sell.hash_id %}" method="post" id="comment_form">
-                <div class="input-field col s6">
-                    <i class="material-icons prefix">mode_edit</i>
-                    <textarea id="icon_prefix2" name="content" class="materialize-textarea"></textarea>
-                    <label for="icon_prefix2">상품에 대한 의견이나 질문을 남겨주세요</label>
-                </div>
-                {% csrf_token %}
-            </form>
-        <a class="waves-effect waves-light btn" id="comment_submit">
-            <i class="material-icons right">announcement</i>의견남기기
-        </a>
+</div>
+<div class="modal fade" id="attach_comment" role="dialog">
+  <div class="modal-dialog">
+      <!-- Modal content-->
 
+      <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">의견을 남겨주세요~</h4>
+            </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="md-form">
+                    <i class="fa fa-pencil prefix"></i>
+                    <textarea type="text" id="comment_data" class="md-textarea"></textarea>
+                    <label for="#comment_data">commnet</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+              <button type="button" id="comment_submit" class="btn btn-default" data-submit-url="{% url 'attach_comment' sell.hash_id %}">전송</button>
+            </div>
         </div>
+      </div>
     </div>
+</div>
 
 {% endblock %}
 {% block js_sector %}

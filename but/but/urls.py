@@ -15,7 +15,7 @@ from trades.views import SellCreateView, GoodsListView,\
     GoodsDetailView, SellUpdateView, OrderPageView, OrderCheckView,\
     OrderCompleteView, CommentAttachView
 
-from trades.api import CommentAPIView, SellListAPIView, SellDetailAPIView
+from trades.api import *
 from users.api import UserCheckAPIView, UserEmailAPIView, CertificateUserPhone, \
         CheckCertificatePhone
 
@@ -29,7 +29,7 @@ urlpatterns = [
     url(r'^register/goods/$', SellCreateView.as_view(), name="register_goods"),
     url(r'^sell/list/$', GoodsListView.as_view(), name="goods_list"),
     url(r'^sell/(?P<slug>\w+)/modify/$', SellUpdateView.as_view(), name="goods_modify"),
-    url(r'^sell/(?P<slug>\w+)/comment/$', CommentAttachView.as_view(), name="attach_comment"),
+    url(r'^sell/(?P<slug>\w+)/comment/$', CommentAttachAPIView.as_view(), name="attach_comment"),
     url(r'^sell/(?P<slug>\w+)/$', GoodsDetailView.as_view(), name="goods_detail"),
 
     url(r'^api/sell/(?P<pk>\d+)/comment/$', CommentAPIView.as_view(), name="api_sell_comment"),

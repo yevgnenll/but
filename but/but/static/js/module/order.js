@@ -1,6 +1,17 @@
 (function(){
     $(document).ready(function(){
-        $('#order_button').click(function(){
+
+        var order_button = $('#order_button');
+
+        order_button.click(function(){
+            var stock = Number(order_button.data('rest-stock'));
+            var buy_count = Number($('#buy_count').val());
+
+            if(stock < buy_count){
+                alert('재고가 ' + (buy_count - stock) + '개 부족합니다');
+                return false; 
+            }
+
             $('#order_form').submit();
         });
 
