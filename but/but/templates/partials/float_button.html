@@ -4,28 +4,29 @@
         </a>
         <ul>
             <li>
-                <a class="btn-floating red tooltipped"
-                   data-position="left" data-delay="50" data-tooltip="상품등록" href="{% url 'register_goods' %}">
-                <i class="material-icons">business</i></a>
+                <a class="btn-floating red" href="{% url 'register_goods' %}"
+                    data-toggle="tooltip" data-placement="top" title="상품등록">
+                    <i class="material-icons">business</i></a>
+                </a>
             </li>
             {% if 'sell' in request.path and 'modify' not in request.path %}
             <li>
-                <a class="btn-floating yellow darken-1 tooltipped modal-trigger"
-                   data-position="left" data-delay="50" data-tooltip="상품 댓글달기"
-                   href="#attach_comment">
-                <i class="material-icons">comment</i></a>
+                <a class="btn-floating yellow darken-1"
+                    data-toggle="tooltip" data-placement="left" title="댓글">
+                    <i class="material-icons" data-toggle="modal" data-target="#attach_comment">comment</i>
+                </a>
             </li>
             <li>
-                <a class="btn-floating green tooltipped"
-                    data-position="left" data-delay="50" data-tooltip="판매자에게 메일보내기">
+                <a class="btn-floating green"
+                    data-toggle="tooltip" data-placement="left" title="메일보내기">
                 <i class="material-icons">email</i></a>
             </li>
             {% endif %}
 
             {% if request.user == sell.user %}
             <li>
-                <a class="btn-floating blue tooltipped"
-                    data-position="left" data-delay="50" data-tooltip="상품수정" href="{% url 'goods_modify' sell.hash_id %}">
+                <a class="btn-floating blue" href="{% url 'goods_modify' sell.hash_id %}"
+                    data-toggle="tooltip" data-placement="left" title="상품수정">
                 <i class="material-icons">mode_edit</i></a>
             </li>
 

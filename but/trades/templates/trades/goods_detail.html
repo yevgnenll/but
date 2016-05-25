@@ -94,23 +94,33 @@
         {% include "partials/float_button.html" %}
     {% endif %}
     {# modal popup for comment #}
-    <div class="modal" id="attach_comment">
-        <div class="modal-content modal-fixed-footer">
-            <form action="{% url 'attach_comment' sell.hash_id %}" method="post" id="comment_form">
-                <div class="input-field col s6">
-                    <i class="material-icons prefix">mode_edit</i>
-                    <textarea id="icon_prefix2" name="content" class="materialize-textarea"></textarea>
-                    <label for="icon_prefix2">상품에 대한 의견이나 질문을 남겨주세요</label>
-                </div>
-                {% csrf_token %}
-            </form>
-        <a class="waves-effect waves-light btn" id="comment_submit">
-            <i class="material-icons right">announcement</i>의견남기기
-        </a>
+</div>
+<div class="modal fade" id="attach_comment" role="dialog">
+  <div class="modal-dialog">
+      <!-- Modal content-->
 
+      <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">의견을 남겨주세요~</h4>
+            </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="md-form">
+                    <i class="fa fa-pencil prefix"></i>
+                    <textarea type="text" id="comment_data" class="md-textarea"></textarea>
+                    <label for="#comment_data">commnet</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+              <button type="button" id="comment_submit" class="btn btn-default" data-submit-url="{% url 'attach_comment' sell.hash_id %}">전송</button>
+            </div>
         </div>
+      </div>
     </div>
 </div>
+
 {% endblock %}
 {% block js_sector %}
     {% javascript 'comment' %}
