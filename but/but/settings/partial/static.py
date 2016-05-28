@@ -82,6 +82,12 @@ PIPELINE = {
             ),
             'output_filename': 'js/separate/certificate.js',
         },
+        'email': {
+            'source_filenames': (
+                'js/separate/send_email.js',
+            ),
+            'output_filename': 'js/separate/send_email.js',
+        },
 
     }
 }

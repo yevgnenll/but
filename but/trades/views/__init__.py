@@ -6,3 +6,4 @@ from .order_page import OrderPageView
 from .order_check import OrderCheckView
 from .order_complete import OrderCompleteView
 from .attach_comment import CommentAttachView
+from .send_email import send_email
