@@ -13,7 +13,7 @@ from users.views import SignupView, logout_user,\
         UserLoginView, UserProfileView, UserProfileModifyView
 from trades.views import SellCreateView, GoodsListView,\
     GoodsDetailView, SellUpdateView, OrderPageView, OrderCheckView,\
-    OrderCompleteView, CommentAttachView
+    OrderCompleteView, CommentAttachView, send_email
 
 from trades.api import *
 from users.api import UserCheckAPIView, UserEmailAPIView, CertificateUserPhone, \
@@ -46,6 +46,7 @@ urlpatterns = [
 
     url(r'^user/(?P<slug>\w+)/modify/$', UserProfileModifyView.as_view(), name="profile_modify"),
     url(r'^user/(?P<slug>\w+)/$', UserProfileView.as_view(), name="profile"),
+    url(r'^send_email/$', send_email, name="send_email"),
 
     url('', include('social.apps.django_app.urls', namespace='social')),
 
