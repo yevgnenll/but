@@ -1,8 +1,9 @@
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
-from trades.models import Sell, Buy
+from trades.models import Sell, Buy, Contact
 from but.utils import make_hash
+from trades.tasks import SendEmailBuyerToSeller
 
 
 @receiver(post_save, sender=Sell)
@@ -23,3 +24,11 @@ def post_save_count_apply(sender, instance, created, **kwargs):
         if sell.stock == 0:
             sell.is_public = False
         sell.save()
+
+
+@receiver(post_save, sender=Contact)
+def post_save_contact(sender, instance, created, **kwargs):
+
+    if created:
+        task = SendEmailBuyerToSeller()
+        task.delay(instance.id)
