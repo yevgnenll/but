@@ -12,9 +12,11 @@
 
     <div class="flexslider">
       <ul class="slides">
+        {% if sell.welcome_image %}
         <li>
             <img src="{{ sell.welcome_image.url }}" />
         </li>
+        {% endif %}
         {% if sell.sub_image %}
         <li>
             <img src="{{ sell.sub_image.url }}" />

@@ -7,10 +7,11 @@
 {% block content %}
 
 <section class="padding-top-5">
-<h1 class="header center light-blue-text text-darken-4">다른 세상의 관심입니다.</h1>
+<div class="container">
+    <h1 class="header center light-blue-text text-darken-4">다른 세상의 관심입니다.</h1>
     <div class="row">
     {% for good in object_list %}
-		<div class="col-md-6">
+		<div class="s12 l6">
 			<!--Card Light-->
 			<div class="card">
 				<!--Card image-->
@@ -38,5 +39,6 @@
 		</div>
     {% endfor %}
     </div>
+</div>
 </section>
 {% endblock %}
