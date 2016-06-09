@@ -1,5 +1,15 @@
 @charset "UTF-8";  
 
+@import "module/home";
+@import "module/profile";
+
+@import "module/mixins";
+@import "module/variables";
+@import "module/grid";
+@import "module/carousel";
+@import "module/slider";
+// @import "module/color";
+
 .icon-block {
   padding: 0 15px; }
 
@@ -50,9 +60,3 @@ html {
   max-width: 100%;
   height: auto;
 }
-@import "module/home";
-@import "module/profile";
-
-@import "module/mixins";
-@import "module/variables";
-@import "module/grid";
