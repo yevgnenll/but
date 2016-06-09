@@ -1,5 +1,15 @@
 @charset "UTF-8";  
 
+@import "module/home";
+@import "module/profile";
+
+@import "module/mixins";
+@import "module/variables";
+@import "module/grid";
+@import "module/carousel";
+@import "module/slider";
+// @import "module/color";
+
 .icon-block {
   padding: 0 15px; }
 
@@ -40,10 +50,6 @@ li {
 .collection.noborder {
   border: 0px; }
 
-@font-face {
-  font-family: 'Nanum Barun Gothic';
-  font-style: normal;
-  src: url(../fonts/NanumBarunGothic.ttf) format("truetype"); }
 html {
   font-family: "Roboto"," Nanum Barun Gothic", sans-serif;
   font-weight: normal; }
@@ -54,9 +60,3 @@ html {
   max-width: 100%;
   height: auto;
 }
-@import "module/home";
-@import "module/profile";
-
-@import "module/mixins";
-@import "module/variables";
-@import "module/grid";

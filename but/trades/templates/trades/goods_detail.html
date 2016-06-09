@@ -10,22 +10,40 @@
 <div class="container">
     <h1 class="header center  light-blue-text text-darken-4">{{ sell.user }}님의 상품입니다.</h1>
 
-    <div class="flexslider">
-      <ul class="slides">
-        <li>
-            <img src="{{ sell.welcome_image.url }}" />
-        </li>
-        {% if sell.sub_image %}
-        <li>
-            <img src="{{ sell.sub_image.url }}" />
-        </li>
-        {% endif %}
-        {% if sell.second_image %}
-        <li>
-            <img src="{{ sell.second_image.url }}" />
-        </li>
-        {% endif %}
-      </ul>
+    <div class="row">
+        <div class="col s12 m12 l12">
+            <div class="slider">
+                <ul class="slides">
+                  <li>
+                      <img src="{{ sell.welcome_image.url }}" >
+                    <div class="caption center-align">
+                      <h3></h3>
+                      <h5 class="light grey-text text-lighten-3"></h5>
+                    </div>
+                  </li>
+
+                  {% if sell.second_image %}
+                      <li>
+                        <img src="{{ sell.second_image.url }}" >
+                        <div class="caption left-align">
+                        <h3></h3>
+                          <h5 class="light grey-text text-lighten-3"></h5>
+                        </div>
+                      </li>
+                  {% endif %}
+
+                  {% if sell.sub_image %}
+                      <li>
+                        <img src="{{ sell.sub_image.url }}" >
+                        <div class="caption right-align">
+                          <h3></h3>
+                          <h5 class="light grey-text text-lighten-3"></h5>
+                        </div>
+                      </li>
+                  {% endif%}
+                </ul>
+            </div>
+        </div>
     </div>
 
     <form action="{% url 'buy_page' sell.hash_id %}" method="post" id="order_form">

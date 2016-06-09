@@ -7,36 +7,34 @@
 {% block content %}
 
 <section class="padding-top-5">
-<h1 class="header center light-blue-text text-darken-4">다른 세상의 관심입니다.</h1>
+<div class="container">
+    <h1 class="header center light-blue-text text-darken-4">다른 세상의 관심입니다.</h1>
     <div class="row">
     {% for good in object_list %}
-		<div class="col-md-6">
-			<!--Card Light-->
-			<div class="card">
-				<!--Card image-->
-				<div class="view overlay hm-white-slight">
-                    <img src="{{ good.welcome_image.url }}" class="img-fluid" alt="">
-                    <a href="{% url 'goods_detail' good.hash_id %}">
-						<div class="mask"></div>
-					</a>
-				</div>
-				<!--/.Card image-->
-				<!--Social shares button-->
-				<a class="activator"><i class="fa fa-share-alt"></i></a>
-				<!--Card content-->
-				<div class="card-block">
-					<!--Title-->
-                    <h4 class="card-title">{{ good.title }}</h4>
-					<hr>
-					<!--Text-->
-                    <p class="card-text">{{ good.sub_title }}</p>
-					<a href="{% url 'goods_detail' good.hash_id %}" class="link-text"><h5>Read more <i class="fa fa-chevron-right"></i></h5></a>
-				</div>
-				<!--/.Card content-->
-			</div>
-			<!--/.Card Light-->
-		</div>
-    {% endfor %}
+	    <div class="col offset-s2 offset-m2 offset-l2 s8 m8 l8">
+            <div class="card large">
+               <div class="card large card_height_600">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <a href="{% url 'goods_detail' good.hash_id %}">
+                            <img src="{{ good.welcome_image.url }}" alt="{{ good.title }}">
+                        </a>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title">{{ good.title }}</span>
+                        <p>{{ good.sub_title | safe }}</p>
+                            <div class="chip a-font-color">
+                                <a href="#">{{ good.user }}</a>
+                            </div>
+
+                    </div>
+                    <div class="card-action">
+                      <a href="#">{{ good.user }}</a>
+                    </div>
+                  </div>  
+            </div>
+        </div>
+		    {% endfor %}
     </div>
+</div>
 </section>
 {% endblock %}
