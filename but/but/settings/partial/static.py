@@ -50,7 +50,12 @@ PIPELINE = {
             ),
             'output_filename': 'js/vendor/ordered/summnernote.js',
         },
-
+        'materialize': {
+            'source_filenames': (
+                'js/vendor/ordered/materialize.js',
+            ),
+            'output_filename': 'js/vendor/ordered/materialize.js',
+        },
         'vendor': {
             'source_filenames': (
                 'js/vendor/not_ordered/*.js',
