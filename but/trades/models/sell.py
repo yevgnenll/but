@@ -122,3 +122,8 @@ class Sell(models.Model):
     def comments(self):
 
         return self.comment_set.all()
+
+    class Meta:
+
+        verbose_name = "판매"
+        verbose_name_plural = verbose_name
